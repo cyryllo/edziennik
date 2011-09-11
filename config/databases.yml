@@ -1,7 +1,10 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/07-Databases
+
 all:
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn: 'sqlite:/tmp/sf_sandbox/data/sandbox.db'
+      dsn:      mysql:host=localhost;dbname=edziennik
       username: root
-      password: null
+      password: 
