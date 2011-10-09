@@ -1,6 +1,5 @@
 *.class
 *.pyc
 *.pyo
-databases.yml
 cache/
 log/
