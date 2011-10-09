@@ -1,6 +1,6 @@
 *.class
 *.pyc
 *.pyo
-config/databases.yml
+databases.yml
 cache/
 log/
