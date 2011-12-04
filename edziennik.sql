@@ -25,9 +25,12 @@ CREATE TABLE dyplomy
     ( 
      id SERIAL  PRIMARY KEY , 
      pupil INTEGER  NOT NULL , 
-     semestr INTEGER  NOT NULL , 
-     przedmiot INTEGER  NOT NULL , 
+     semestr_id INTEGER  NOT NULL , 
+     przedmiot_id INTEGER  NOT NULL , 
      ocenaDyplomu INTEGER  NOT NULL ,
+     FOREIGN KEY (pupil) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     FOREIGN KEY (semestr_id) REFERENCES semestr (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     FOREIGN KEY (przedmiot_id) REFERENCES przedmiot (id) ON DELETE CASCADE ON UPDATE CASCADE
      
     ) 
 ;
@@ -38,10 +41,11 @@ CREATE TABLE grupy
     ( 
      id SERIAL  PRIMARY KEY , 
      pupil INTEGER  NOT NULL , 
-     semestr INTEGER  NOT NULL , 
+     semestr_id INTEGER  NOT NULL , 
      grupa INTEGER , 
      info VARCHAR (200) ,
-     PRIMARY KEY (id)
+     FOREIGN KEY (pupil) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     FOREIGN KEY (semestr_id) REFERENCES semestr (id) ON DELETE CASCADE ON UPDATE CASCADE ,
     ) 
 ;
 
@@ -51,8 +55,10 @@ CREATE TABLE obecnosci
     ( 
      id SERIAL  PRIMARY KEY , 
      pupil INTEGER  NOT NULL , 
-     lekcja INTEGER  NOT NULL , 
+     lekcja_id INTEGER  NOT NULL , 
      rodzajObecnosci VARCHAR (2),
+     FOREIGN KEY (pupil) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     FOREIGN KEY (lekcja_id) REFERENCES lekcje (id) ON DELETE CASCADE ON UPDATE CASCADE 
      
     ) 
 ;
@@ -60,9 +66,11 @@ CREATE TABLE obecnosci
 --usprawiedliwienia
 CREATE TABLE usprawiedliwienie 
     ( 
-     obecnosci_id INTEGER  PRIMARY KEY , 
+     obecnosci_id INTEGER  , 
      uzytkownik_id INTEGER  NOT NULL , 
-     tresc VARCHAR (200) 
+     tresc VARCHAR (200) ,
+     FOREIGN KEY (obecnosci_id) REFERENCES obecnosci (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     FOREIGN KEY (uzytkownik_id) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE
     ) 
 ;
 
