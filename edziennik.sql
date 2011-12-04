@@ -105,7 +105,7 @@ CREATE TABLE planLekcji
      dzienTygodnia INTEGER , 
      godzinaLekcyjna INTEGER , 
      grupa_id INTEGER , 
-     obowiazkowa boolean NOT NULL DEFAULT TRUE ,
+     obowiazkowa BOOLEAN NOT NULL DEFAULT TRUE ,
      FOREIGN KEY (semestr_id) REFERENCES semestr (id) ON DELETE CASCADE ON UPDATE CASCADE ,
      FOREIGN KEY (klasa_id) REFERENCES klasy (id) ON DELETE CASCADE ON UPDATE CASCADE ,
      FOREIGN KEY (nauczyciel_id) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
@@ -201,6 +201,7 @@ CREATE TABLE uzytkownik
      kodPocztowy VARCHAR (6) , 
      panstwo VARCHAR (20) , 
      info VARCHAR (200) ,
+     aktywny BOOLEAN NOT NULL DEFAULT TRUE ,
      FOREIGN KEY (klasa_id) REFERENCES klasy (id) ON DELETE CASCADE ON UPDATE CASCADE ,
      FOREIGN KEY (ojciec) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
      FOREIGN KEY (matka) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
@@ -217,5 +218,5 @@ $BODY$
 LANGUAGE 'plpgsql'
 
 
--- INSERT INTO użytkownik VALUES ( NULL, 'a','Admin','Administrator','admin',  sha1('admin123456'), 'kontakt@brosbit4u.net',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL );
+-- INSERT INTO użytkownik VALUES ( NULL, 'a','Admin','Administrator','admin',  sha1('admin123456'), 'kontakt@brosbit4u.net',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL, DEFAULT );
 
