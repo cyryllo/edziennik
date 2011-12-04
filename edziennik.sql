@@ -187,7 +187,7 @@ CREATE TABLE uzytkownik
      imie VARCHAR (20) , 
      nazwisko VARCHAR (40) , 
      login VARCHAR (20) , 
-     haslo VARCHAR (12) , 
+     haslo TEXT , 
      email VARCHAR (60) , 
      telefon VARCHAR (28) , 
      klasa_id INTEGER ,  
@@ -207,5 +207,15 @@ CREATE TABLE uzytkownik
     ) 
 ;
 
+CREATE OR REPLACE FUNCTION sha1(bytea)
+RETURNS character varying AS
+$BODY$
+BEGIN
+RETURN ENCODE(DIGEST($1, 'sha1'), 'hex');
+END;
+$BODY$
+LANGUAGE 'plpgsql'
 
+
+-- INSERT INTO użytkownik VALUES ( NULL, 'a','Admin','Administrator','admin',  sha1('admin123456'),  );
 
