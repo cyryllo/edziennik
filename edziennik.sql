@@ -78,13 +78,16 @@ CREATE TABLE usprawiedliwienie
 CREATE TABLE lekcje 
     ( 
      id SERIAL  PRIMARY KEY , 
-     przedmiot INTEGER  NOT NULL , 
-     klasa INTEGER  NOT NULL , 
-     semestr INTEGER  NOT NULL , 
+     przedmiot_id INTEGER  NOT NULL , 
+     klasa_id INTEGER  NOT NULL , 
+     semestr_id INTEGER  NOT NULL , 
      temat VARCHAR (50) , 
      dataLekcji TIMESTAMP (0) , 
-     nauczyciel INTEGER  NOT NULL ,
-     
+     nauczyciel_id INTEGER  NOT NULL ,
+     FOREIGN KEY (przedmiot_id) REFERENCES przedmiot (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     FOREIGN KEY (klasa_id) REFERENCES klasy (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     FOREIGN KEY (semestr_id) REFERENCES semestr (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     FOREIGN KEY (nauczyciel_id) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE
     )
     ;
 
@@ -93,16 +96,22 @@ CREATE TABLE lekcje
 CREATE TABLE planLekcji 
     ( 
      id SERIAL PRIMARY KEY , 
-     semestr INTEGER  NOT NULL , 
-     klasa INTEGER  NOT NULL , 
-     nauczyciel INTEGER  NOT NULL , 
-     przedmiot INTEGER  NOT NULL , 
+     semestr_id INTEGER  NOT NULL , 
+     klasa_id INTEGER  NOT NULL , 
+     nauczyciel_id INTEGER  NOT NULL , 
+     przedmiot_id INTEGER  NOT NULL , 
      czasStart DATE , 
      czasStop DATE , 
      dzienTygodnia INTEGER , 
      godzinaLekcyjna INTEGER , 
-     grupaNr INTEGER , 
-     obowiazkowa CHAR (1) 
+     grupa_id INTEGER , 
+     obowiazkowa boolean NOT NULL DEFAULT TRUE ,
+     FOREIGN KEY (semestr_id) REFERENCES semestr (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     FOREIGN KEY (klasa_id) REFERENCES klasy (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     FOREIGN KEY (nauczyciel_id) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     FOREIGN KEY (przedmiot_id) REFERENCES przedmiot (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     FOREIGN KEY (grupa_id) REFERENCES grupy (id) ON DELETE CASCADE ON UPDATE CASCADE
+         
     ) 
 ;
 
@@ -112,13 +121,18 @@ CREATE TABLE oceny
     ( 
      id SERIAL PRIMARY KEY , 
      pupil INTEGER  NOT NULL , 
-     ocena INTEGER  NOT NULL ,
-     waga FLOAT  NOT NULL default 1 , 
-     nauczyciel INTEGER  NOT NULL , 
-     temat INTEGER  NOT NULL , 
-     semestr INTEGER  NOT NULL , 
+     ocena_id INTEGER  NOT NULL ,
+     waga FLOAT  NOT NULL DEFAULT 1 , 
+     nauczyciel_id INTEGER  NOT NULL , 
+     przedmiot_id INTEGER  NOT NULL , 
+     semestr_id INTEGER  NOT NULL , 
      dataOceny DATE , 
-     info VARCHAR (200) 
+     info VARCHAR (200) ,
+     FOREIGN KEY (pupil) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     FOREIGN KEY (ocena_id) REFERENCES tablicaOcen (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     FOREIGN KEY (nauczyciel_id) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     FOREIGN KEY (przedmiot_id) REFERENCES przedmiot (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     FOREIGN KEY (semestr_id) REFERENCES semestr (id) ON DELETE CASCADE ON UPDATE CASCADE 
     ) 
 ;
 
@@ -138,8 +152,10 @@ CREATE TABLE uwagi
     ( 
      id SERIAL PRIMARY KEY , 
      pupil INTEGER  NOT NULL , 
-     lekcja INTEGER  NOT NULL , 
-     info VARCHAR (200) 
+     lekcja_id INTEGER  NOT NULL , 
+     info VARCHAR (200) ,
+     FOREIGN KEY (pupil) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     FOREIGN KEY (lekcja_id) REFERENCES lekcje (id) ON DELETE CASCADE ON UPDATE CASCADE ,
     ) 
 ;
 
@@ -168,14 +184,13 @@ CREATE TABLE uzytkownik
     ( 
      id SERIAL PRIMARY KEY , 
      rodzaj CHAR (6) , 
-     Imie VARCHAR (20) , 
+     imie VARCHAR (20) , 
      nazwisko VARCHAR (40) , 
      login VARCHAR (20) , 
      haslo VARCHAR (12) , 
      email VARCHAR (60) , 
      telefon VARCHAR (28) , 
-     idKlasy INTEGER , 
-     nrPupil INTEGER , 
+     klasa_id INTEGER ,  
      pesel INTEGER , 
      dataUrodzin DATE , 
      miejsceUrodzin DATE , 
@@ -185,7 +200,10 @@ CREATE TABLE uzytkownik
      nrDomu VARCHAR (8) , 
      kodPocztowy VARCHAR (6) , 
      panstwo VARCHAR (20) , 
-     info VARCHAR (200) 
+     info VARCHAR (200) ,
+     FOREIGN KEY (klasa_id) REFERENCES klasy (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     FOREIGN KEY (ojciec) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     FOREIGN KEY (matka) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
     ) 
 ;
 
