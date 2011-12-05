@@ -1,4 +1,4 @@
---polecenia dla bazy danych postgreSQL
+﻿--polecenia dla bazy danych postgreSQL
 --baza danych dla programu Dziennik internetowy  nazwa bazy edziennik
 --użytkownik w postgres:  dziennik
 
@@ -13,8 +13,7 @@ CREATE TABLE klasy
      znak VARCHAR (5) , 
      opis VARCHAR (60) , 
      wychowawca INTEGER  NOT NULL , 
-     startSemestr INTEGER  NOT NULL ,
-     FOREIGN KEY (wychowawca) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE
+     startSemestr INTEGER  NOT NULL
     ) 
 ;
 
@@ -27,11 +26,7 @@ CREATE TABLE dyplomy
      pupil INTEGER  NOT NULL , 
      semestr_id INTEGER  NOT NULL , 
      przedmiot_id INTEGER  NOT NULL , 
-     ocenaDyplomu INTEGER  NOT NULL ,
-     FOREIGN KEY (pupil) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
-     FOREIGN KEY (semestr_id) REFERENCES semestr (id) ON DELETE CASCADE ON UPDATE CASCADE ,
-     FOREIGN KEY (przedmiot_id) REFERENCES przedmiot (id) ON DELETE CASCADE ON UPDATE CASCADE
-     
+     ocenaDyplomu INTEGER  NOT NULL 
     ) 
 ;
 
@@ -43,10 +38,8 @@ CREATE TABLE grupy
      pupil INTEGER  NOT NULL , 
      semestr_id INTEGER  NOT NULL , 
      grupa INTEGER , 
-     info VARCHAR (200) ,
-     FOREIGN KEY (pupil) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
-     FOREIGN KEY (semestr_id) REFERENCES semestr (id) ON DELETE CASCADE ON UPDATE CASCADE ,
-    ) 
+     info VARCHAR (200)
+    )
 ;
 
 
@@ -56,10 +49,7 @@ CREATE TABLE obecnosci
      id SERIAL  PRIMARY KEY , 
      pupil INTEGER  NOT NULL , 
      lekcja_id INTEGER  NOT NULL , 
-     rodzajObecnosci VARCHAR (2),
-     FOREIGN KEY (pupil) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
-     FOREIGN KEY (lekcja_id) REFERENCES lekcje (id) ON DELETE CASCADE ON UPDATE CASCADE 
-     
+     rodzajObecnosci VARCHAR (2)     
     ) 
 ;
 
@@ -68,9 +58,7 @@ CREATE TABLE usprawiedliwienie
     ( 
      obecnosci_id INTEGER  , 
      uzytkownik_id INTEGER  NOT NULL , 
-     tresc VARCHAR (200) ,
-     FOREIGN KEY (obecnosci_id) REFERENCES obecnosci (id) ON DELETE CASCADE ON UPDATE CASCADE ,
-     FOREIGN KEY (uzytkownik_id) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE
+     tresc VARCHAR (200)
     ) 
 ;
 
@@ -83,11 +71,7 @@ CREATE TABLE lekcje
      semestr_id INTEGER  NOT NULL , 
      temat VARCHAR (50) , 
      dataLekcji TIMESTAMP (0) , 
-     nauczyciel_id INTEGER  NOT NULL ,
-     FOREIGN KEY (przedmiot_id) REFERENCES przedmiot (id) ON DELETE CASCADE ON UPDATE CASCADE ,
-     FOREIGN KEY (klasa_id) REFERENCES klasy (id) ON DELETE CASCADE ON UPDATE CASCADE ,
-     FOREIGN KEY (semestr_id) REFERENCES semestr (id) ON DELETE CASCADE ON UPDATE CASCADE ,
-     FOREIGN KEY (nauczyciel_id) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE
+     nauczyciel_id INTEGER  NOT NULL
     )
     ;
 
@@ -105,13 +89,7 @@ CREATE TABLE planLekcji
      dzienTygodnia INTEGER , 
      godzinaLekcyjna INTEGER , 
      grupa_id INTEGER , 
-     obowiazkowa BOOLEAN NOT NULL DEFAULT TRUE ,
-     FOREIGN KEY (semestr_id) REFERENCES semestr (id) ON DELETE CASCADE ON UPDATE CASCADE ,
-     FOREIGN KEY (klasa_id) REFERENCES klasy (id) ON DELETE CASCADE ON UPDATE CASCADE ,
-     FOREIGN KEY (nauczyciel_id) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
-     FOREIGN KEY (przedmiot_id) REFERENCES przedmiot (id) ON DELETE CASCADE ON UPDATE CASCADE ,
-     FOREIGN KEY (grupa_id) REFERENCES grupy (id) ON DELETE CASCADE ON UPDATE CASCADE
-         
+     obowiazkowa BOOLEAN NOT NULL DEFAULT TRUE        
     ) 
 ;
 
@@ -127,12 +105,7 @@ CREATE TABLE oceny
      przedmiot_id INTEGER  NOT NULL , 
      semestr_id INTEGER  NOT NULL , 
      dataOceny DATE , 
-     info VARCHAR (200) ,
-     FOREIGN KEY (pupil) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
-     FOREIGN KEY (ocena_id) REFERENCES tablicaOcen (id) ON DELETE CASCADE ON UPDATE CASCADE ,
-     FOREIGN KEY (nauczyciel_id) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
-     FOREIGN KEY (przedmiot_id) REFERENCES przedmiot (id) ON DELETE CASCADE ON UPDATE CASCADE ,
-     FOREIGN KEY (semestr_id) REFERENCES semestr (id) ON DELETE CASCADE ON UPDATE CASCADE 
+     info VARCHAR (200)
     ) 
 ;
 
@@ -153,9 +126,7 @@ CREATE TABLE uwagi
      id SERIAL PRIMARY KEY , 
      pupil INTEGER  NOT NULL , 
      lekcja_id INTEGER  NOT NULL , 
-     info VARCHAR (200) ,
-     FOREIGN KEY (pupil) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
-     FOREIGN KEY (lekcja_id) REFERENCES lekcje (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     info VARCHAR (200)
     ) 
 ;
 
@@ -201,12 +172,52 @@ CREATE TABLE uzytkownik
      kodPocztowy VARCHAR (6) , 
      panstwo VARCHAR (20) , 
      info VARCHAR (200) ,
-     aktywny BOOLEAN NOT NULL DEFAULT TRUE ,
-     FOREIGN KEY (klasa_id) REFERENCES klasy (id) ON DELETE CASCADE ON UPDATE CASCADE ,
-     FOREIGN KEY (ojciec) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
-     FOREIGN KEY (matka) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     aktywny BOOLEAN NOT NULL DEFAULT TRUE
     ) 
 ;
+
+
+ALTER TABLE klasy ADD CONSTRAINT wychowawcaklasy_fk FOREIGN KEY (wychowawca) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE dyplomy ADD CONSTRAINT pupildyplom_fk FOREIGN KEY (pupil) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     ADD CONSTRAINT semestrdyplom_fk FOREIGN KEY (semestr_id) REFERENCES semestr (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     ADD CONSTRAINT przedmiotdyplom_fk FOREIGN KEY (przedmiot_id) REFERENCES przedmiot (id) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE grupy ADD CONSTRAINT pupilgrupy_fk FOREIGN KEY (pupil) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     ADD CONSTRAINT semestrgrupy_fk FOREIGN KEY (semestr_id) REFERENCES semestr (id) ON DELETE CASCADE ON UPDATE CASCADE;
+     
+ALTER TABLE obecnosci ADD CONSTRAINT pupilobecnosci_fk FOREIGN KEY (pupil) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     ADD CONSTRAINT lekcjaobecnosci_fk FOREIGN KEY (lekcja_id) REFERENCES lekcje (id) ON DELETE CASCADE ON UPDATE CASCADE;
+     
+     
+ALTER TABLE usprawiedliwienie ADD CONSTRAINT obecnoscusprawiedliwienie_fk FOREIGN KEY (obecnosci_id) REFERENCES obecnosci (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     ADD CONSTRAINT uzytkownikusprawiedliwienie_fk FOREIGN KEY (uzytkownik_id) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE;
+     
+ALTER TABLE lekcje ADD CONSTRAINT przedmiotlekcje_fk FOREIGN KEY (przedmiot_id) REFERENCES przedmiot (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     ADD CONSTRAINT klasalekcje_fk  FOREIGN KEY (klasa_id) REFERENCES klasy (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     ADD CONSTRAINT semestrlekcje_fk  FOREIGN KEY (semestr_id) REFERENCES semestr (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     ADD CONSTRAINT uzytkowniklekcje_fk  FOREIGN KEY (nauczyciel_id) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE;
+     
+ALTER TABLE planLekcji ADD CONSTRAINT semestrplanlekcji_fk FOREIGN KEY (semestr_id) REFERENCES semestr (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     ADD CONSTRAINT klasaplanlekcji_fk FOREIGN KEY (klasa_id) REFERENCES klasy (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     ADD CONSTRAINT nauczycielplanlekcji_fk FOREIGN KEY (nauczyciel_id) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     ADD CONSTRAINT przedmiotplanlekcji_fk FOREIGN KEY (przedmiot_id) REFERENCES przedmiot (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     ADD CONSTRAINT grupyplanlekcji_fk FOREIGN KEY (grupa_id) REFERENCES grupy (id) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE oceny ADD CONSTRAINT pupiloceny_fk FOREIGN KEY (pupil) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     ADD CONSTRAINT ocenaoceny_fk FOREIGN KEY (ocena_id) REFERENCES tablicaOcen (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     ADD CONSTRAINT nauczycieloceny_fk FOREIGN KEY (nauczyciel_id) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     ADD CONSTRAINT przedmiotoceny_fk FOREIGN KEY (przedmiot_id) REFERENCES przedmiot (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     ADD CONSTRAINT semestroceny_fk FOREIGN KEY (semestr_id) REFERENCES semestr (id) ON DELETE CASCADE ON UPDATE CASCADE;
+     
+ALTER TABLE uwagi ADD CONSTRAINT pupiluwagi_fk FOREIGN KEY (pupil) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     ADD CONSTRAINT lekcjauwagi_fk FOREIGN KEY (lekcja_id) REFERENCES lekcje (id) ON DELETE CASCADE ON UPDATE CASCADE;
+     
+ALTER TABLE uzytkownik ADD CONSTRAINT klasauzytkownik_fk FOREIGN KEY (klasa_id) REFERENCES klasy (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     ADD CONSTRAINT ojciecuzytkownik_fk FOREIGN KEY (ojciec) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
+     ADD CONSTRAINT matkauzytkownik_fk FOREIGN KEY (matka) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE;
+
+CREATE LANGUAGE plpgsql; 
 
 CREATE OR REPLACE FUNCTION sha1(bytea)
 RETURNS character varying AS
@@ -216,7 +227,6 @@ RETURN ENCODE(DIGEST($1, 'sha1'), 'hex');
 END;
 $BODY$
 LANGUAGE 'plpgsql'
-
 
 -- INSERT INTO użytkownik VALUES ( NULL, 'a','Admin','Administrator','admin',  sha1('admin123456'), 'kontakt@brosbit4u.net',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL, DEFAULT );
 
