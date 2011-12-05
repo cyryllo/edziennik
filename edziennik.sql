@@ -228,6 +228,6 @@ END;
 $BODY$
 LANGUAGE 'plpgsql'
 
--- INSERT INTO klasy VALUES (0,-1,A,'nie uczeń') 
+INSERT INTO klasy VALUES (0,-1,A,'nie uczeń', NULL, NULL) ;
 -- INSERT INTO użytkownik VALUES ( NULL, 'a','Admin','Administrator','admin',  sha1('admin123456'), 'kontakt@brosbit4u.net',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL, DEFAULT );
 
