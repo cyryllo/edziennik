@@ -2,6 +2,6 @@ all:
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn: 'postgresql:host=localhost;dbname=edziennik'
+      dsn: 'pgsql:host=localhost;dbname=edziennik'
       username: dziennik
       password: '12345'
