@@ -12,8 +12,8 @@ CREATE TABLE klasy
      poziom INTEGER , 
      znak VARCHAR (5) , 
      opis VARCHAR (60) , 
-     wychowawca INTEGER  NOT NULL , 
-     startSemestr INTEGER  NOT NULL
+     wychowawca INTEGER , 
+     startSemestr INTEGER
     ) 
 ;
 
@@ -228,5 +228,6 @@ END;
 $BODY$
 LANGUAGE 'plpgsql'
 
+-- INSERT INTO klasy VALUES (0,-1,A,'nie uczeń') 
 -- INSERT INTO użytkownik VALUES ( NULL, 'a','Admin','Administrator','admin',  sha1('admin123456'), 'kontakt@brosbit4u.net',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL, DEFAULT );
 
