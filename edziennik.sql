@@ -176,6 +176,7 @@ CREATE TABLE uzytkownik
     ) 
 ;
 
+--powiązania
 
 ALTER TABLE klasy ADD CONSTRAINT wychowawcaklasy_fk FOREIGN KEY (wychowawca) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE;
 
@@ -217,7 +218,7 @@ ALTER TABLE uzytkownik ADD CONSTRAINT klasauzytkownik_fk FOREIGN KEY (klasa_id) 
      ADD CONSTRAINT ojciecuzytkownik_fk FOREIGN KEY (ojciec) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE ,
      ADD CONSTRAINT matkauzytkownik_fk FOREIGN KEY (matka) REFERENCES uzytkownik (id) ON DELETE CASCADE ON UPDATE CASCADE;
 
-CREATE LANGUAGE plpgsql; 
+--CREATE LANGUAGE plpgsql; 
 
 CREATE OR REPLACE FUNCTION sha1(bytea)
 RETURNS character varying AS
@@ -227,7 +228,7 @@ RETURN ENCODE(DIGEST($1, 'sha1'), 'hex');
 END;
 $BODY$
 LANGUAGE 'plpgsql'
-
-INSERT INTO klasy VALUES (0,-1,A,'nie uczeń', NULL, NULL) ;
+;
+INSERT INTO klasy VALUES (0,-1,'A','nie uczeń', NULL, NULL) ;
 -- INSERT INTO użytkownik VALUES ( NULL, 'a','Admin','Administrator','admin',  sha1('admin123456'), 'kontakt@brosbit4u.net',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL, DEFAULT );
 
