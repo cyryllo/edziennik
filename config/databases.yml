@@ -1,7 +1,11 @@
 all:
-  doctrine:
-    class: sfDoctrineDatabase
+  propel:
+    class: sfPropelDatabase
     param:
+      classname: PropelPDO
       dsn: 'pgsql:host=localhost;dbname=edziennik'
       username: dziennik
       password: '12345'
+      encoding: utf8
+      persistent: true
+      pooling: true
