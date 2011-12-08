@@ -17,6 +17,8 @@ class logowanieActions extends sfActions
   */
   public function executeLogowanie(sfWebRequest $request)
   {
-      
+      $this->form = new LogowanieForm();
   }
+  
+  
 }
