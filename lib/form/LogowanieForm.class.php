@@ -5,7 +5,11 @@ class LogowanieForm extends BaseForm
   {
     $this->setWidgets(array(
       'login'    => new sfWidgetFormInputText(),
-      'hasło'   => new sfWidgetFormInputText(),
+      'haslo'   => new sfWidgetFormInputText(),
+      ));
+    $this->widgetSchema->setLabels(array(
+      'login'    => 'Login',
+      'haslo'   => 'Hasło',
       ));
   }
 }
