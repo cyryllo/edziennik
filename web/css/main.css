@@ -1,14 +1,13 @@
 body{
-	background-image: url('/images/kartka.png');
 	font-family:"Arial Narrow";
 	font-size: 14px;
+	background-image: url('/images/kartka.png');
 }
 
 #kontener
 {
   width: 960px;	
   margin: 0 auto;
-  
   
 }
 
