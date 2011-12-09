@@ -1,7 +1,7 @@
-<center><h2>Logowanie</h2>
-
+<div id="logowanie"><h2>Logowanie</h2>
+<center>
 <form action="<?php echo url_for('logowanie/submit') ?>" method="POST">
-  <table>
+ <table>
     <?php echo $form ?>
     <tr>
       <td colspan="2">
@@ -10,4 +10,6 @@
     </tr>
   </table>
 </form>
-</center>
+</center> 
+<br />
+</div>

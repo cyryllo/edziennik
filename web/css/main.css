@@ -3,3 +3,23 @@ body{
 	font-family:"Arial Narrow";
 	font-size: 14px;
 }
+
+#kontener
+{
+  width: 960px;	
+  margin: 0 auto;
+  
+  
+}
+
+#logowanie{
+	position:relative;
+	width: 220px;
+	margin-top: 200px;
+	margin-left: auto;
+    margin-right: auto;
+	background-color: white;
+	text-align: center;
+	border:groove;
+	
+	}
