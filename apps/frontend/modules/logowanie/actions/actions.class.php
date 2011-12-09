@@ -35,6 +35,12 @@ public function executeSubmit(sfWebRequest $request)
   $this->redirect('logowanie/sprawdz?'.http_build_query($params));
 }
  
+public function executeSprawdz()
+{
+} 
+ 
+ 
+
 
 }
   
