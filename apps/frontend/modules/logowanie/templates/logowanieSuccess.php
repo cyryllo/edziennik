@@ -1,6 +1,6 @@
 <div id="logowanie"><h2>Logowanie</h2>
 <center>
-<form action="<?php echo url_for('logowanie/submit') ?>" method="POST">
+<form action="<?php echo url_for('logowanie/sprawdz') ?>" method="POST">
  <table>
     <?php echo $form ?>
     <tr>

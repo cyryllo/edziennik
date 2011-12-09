@@ -18,7 +18,25 @@ class logowanieActions extends sfActions
   public function executeLogowanie(sfWebRequest $request)
   {
       $this->form = new LogowanieForm();
-  }
+  } 
   
   
+public function executeSprawdz(sfWebRequest $request)
+{
+  $this->forward404Unless($request->isMethod('post'));
+ 
+  $params = array(
+    'login'    => $request->getParameter('login'),
+    'haslo'   => $request->getParameter('haslo'),
+    
+  );
+ 
+  $this->redirect('logowanie/sprawdz?'.http_build_query($params));
 }
+ 
+
+}
+  
+ 
+
+
