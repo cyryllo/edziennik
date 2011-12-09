@@ -21,10 +21,11 @@ class logowanieActions extends sfActions
   } 
   
   
-public function executeSprawdz(sfWebRequest $request)
+public function executeSubmit(sfWebRequest $request)
 {
+  
   $this->forward404Unless($request->isMethod('post'));
- 
+  
   $params = array(
     'login'    => $request->getParameter('login'),
     'haslo'   => $request->getParameter('haslo'),
