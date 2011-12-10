@@ -15,13 +15,13 @@ class logowanieActions extends sfActions
   *
   * @param sfRequest $request A request object
   */
-  public function executeLogowanie(sfWebRequest $request)
+  public function executeLoguj(sfWebRequest $request)
   {
       $this->form = new LogowanieForm();
   } 
   
   
-public function executeSubmit(sfWebRequest $request)
+public function executeWeryfikuj($request)
 {
   
   $this->forward404Unless($request->isMethod('post'));
@@ -32,12 +32,10 @@ public function executeSubmit(sfWebRequest $request)
     
   );
  
-  $this->redirect('logowanie/sprawdz?'.http_build_query($params));
+  
 }
  
-public function executeSprawdz()
-{
-} 
+
  
  
 

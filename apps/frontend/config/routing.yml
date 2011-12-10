@@ -4,7 +4,7 @@
 # default rules
 homepage:
   url:   /
-  param: { module: logowanie, action: logowanie }
+  param: { module: logowanie, action: loguj }
 
 # generic rules
 # please, remove them by adding more specific rules
