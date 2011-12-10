@@ -13,8 +13,8 @@ class LogowanieForm extends BaseForm
       ));
   
   $this->setValidators(array(
-      'login'    => new sfValidatorString(array('required' => true)),
-      'haslo'    => new sfValidatorString(array('required' => true)),
+      'login'    => new sfValidatorString(array('required' => true),  array('required' => 'Musisz podać login')),
+      'haslo'    => new sfValidatorString(array('required' => true), array('required' => 'P')),
     ));
   }
   
