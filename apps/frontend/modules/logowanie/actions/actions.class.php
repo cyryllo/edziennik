@@ -22,7 +22,7 @@ class logowanieActions extends sfActions
   
   if ($request->isMethod('post'))
     {
-      $this->form->bind($request->getParameter('logowanie'));
+      $this->form->bind($request->getParameter('loguj'));
       if ($this->form->isValid())
       {
         $this->redirect('loguj/weryfikuj?'.http_build_query($this->form->getValues()));
