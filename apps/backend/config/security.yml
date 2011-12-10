@@ -5,21 +5,21 @@ default:
   is_secure: false
   
 uczen:
-  is_secure: on
+  is_secure: true
   credentials: uczen
   
 rodzic:
-  is_secure: on
+  is_secure: true
   credentials: rodzic
   
 nauczyciel:
-  is_secure: on
+  is_secure: true
   credentials: naucz
   
 sekretariat:
-  is_secure: on
+  is_secure: true
   credentials: sekret
   
 admin:
-  is_secure: on
+  is_secure: true
   credentials: admin
