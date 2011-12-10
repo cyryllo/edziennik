@@ -3,3 +3,23 @@
 
 default:
   is_secure: false
+  
+uczen:
+  is_secure: on
+  credentials: uczen
+  
+rodzic:
+  is_secure: on
+  credentials: rodzic
+  
+nauczyciel:
+  is_secure: on
+  credentials: naucz
+  
+sekretariat:
+  is_secure: on
+  credentials: sekret
+  
+admin:
+  is_secure: on
+  credentials: admin
