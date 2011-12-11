@@ -45,7 +45,8 @@ if($u)
 	
 	
 }else{
-	echo "Błędne dane logowania";
+	
+	return $this->getContext()->getController()->redirect('logowanie/loguj');
 }	
  
   
