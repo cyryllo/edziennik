@@ -17,6 +17,32 @@ class zapleczeActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
-    $this->forward('default', 'module');
+    
   }
+  
+  public function executeUczen(sfWebRequest $request)
+  {
+    
+  }
+  
+  public function executeRodzic(sfWebRequest $request)
+  {
+    
+  }
+  
+  public function executeNuczyciel(sfWebRequest $request)
+  {
+    
+  }
+  
+  public function executeSekretariat(sfWebRequest $request)
+  {
+    
+  }
+  
+  public function executeAdmin(sfWebRequest $request)
+  {
+    
+  }
+  
 }
