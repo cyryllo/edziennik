@@ -19,15 +19,6 @@ class logowanieActions extends sfActions
   {
       $this->form = new LogowanieForm();
    
-  
-  if ($request->isMethod('post'))
-    {
-      $this->form->bind($request->getParameter('logowanie'));
-      if ($this->form->isValid())
-      {
-        $this->redirect('loguj/weryfikuj?'.http_build_query($this->form->getValues()));
-      }
-    }
   }
   
 public function executeWeryfikuj($request)
@@ -35,11 +26,7 @@ public function executeWeryfikuj($request)
   
   $this->forward404Unless($request->isMethod('post'));
   
-  $params = array(
-    'login'    => $request->getParameter('login'),
-    'haslo'   => $request->getParameter('haslo'),
-    
-  );
+  
  
   
 }

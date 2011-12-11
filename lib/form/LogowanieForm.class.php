@@ -4,14 +4,10 @@ class LogowanieForm extends BaseForm
   public function configure()
   {
     $this->setWidgets(array(
-      'login'    => new sfWidgetFormInputText(),
-      'haslo'   => new sfWidgetFormInputPassword(),
+      'login'    => new sfWidgetFormInputText(array('label' => 'Login')),
+      'haslo'   => new sfWidgetFormInputPassword(array('label' => 'Hasło'))
       ));
-    $this->widgetSchema->setLabels(array(
-      'login'    => 'Login',
-      'haslo'   => 'Hasło',
-      ));
-	
+
   }
   
   
