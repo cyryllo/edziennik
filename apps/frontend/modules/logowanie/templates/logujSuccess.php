@@ -5,7 +5,7 @@
     <?php echo $form ?>
     <tr>
       <td colspan="2">
-        <input type="submit" value="Loguj"/>
+        <input type="submit" value="Zaloguj"/>
       </td>
     </tr>
   </table>

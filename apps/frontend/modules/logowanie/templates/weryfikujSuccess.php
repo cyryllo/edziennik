@@ -1,5 +1,10 @@
+<?php
+$login= $sf_params->get('login');
+$haslo= $sf_params->get('haslo');
+$haslo=sha1($haslo);
+?>
 <ul>
-  <li>Login:    <?php echo $sf_params->get('login') ?></li>
-  <li>Hasło:   <?php echo $sf_params->get('haslo') ?></li>
+  <li>Login:    <?php echo $login ?></li>
+  <li>Hasło:   <?php echo $haslo ?></li>
   
 </ul>
