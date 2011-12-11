@@ -10,7 +10,9 @@
   </head>
   <body>
   	<div id="kontener">
+  		<div id="naglowek"></div>
     <?php echo $sf_content ?>
+    <div id="stopka"></div>
     </div>
   </body>
 </html>
