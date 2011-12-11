@@ -11,11 +11,7 @@ class LogowanieForm extends BaseForm
       'login'    => 'Login',
       'haslo'   => 'Hasło',
       ));
-  
-  	$this->setValidators(array(
-      'login' => new sfValidatorString(array('required' => true),  array('required' => 'Musisz podać login')),
-      'haslo' => new sfValidatorString(array('min_length' => 1), array('required' => 'Podaj haslo')),
-    ));
+	
   }
   
   
