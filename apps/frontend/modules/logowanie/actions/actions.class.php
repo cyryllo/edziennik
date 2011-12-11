@@ -26,14 +26,34 @@ public function executeWeryfikuj($request)
   
   $this->forward404Unless($request->isMethod('post'));
   
-  
+	$login= $this->getRequestParameter('login');
+  	$haslo= $this->getRequestParameter('haslo');  
+	
+  if ($login && $haslo) {
+ 	
+  	$c = new Criteria();
+  	$c->add(UzytkownikPeer::LOGIN, $login);
+  	$c->add(UzytkownikPeer::HASLO, sha1($haslo));
+  	$u = UzytkownikPeer::doSelectOne($c);
+	
+if($u)
+{
+	echo "Zalogowano";
+	$this->getUser()->setAuthenticated(true);
+    $this->getUser()->addCredentials( $u->getRodzaj());
+	
+	
+	
+}else{
+	echo "Błędne dane logowania";
+}	
  
   
 }
  
 
  
- 
+}
 
 
 }
