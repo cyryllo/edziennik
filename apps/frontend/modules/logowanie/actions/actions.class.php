@@ -29,6 +29,11 @@ public function executeWeryfikuj($request)
 	$login= $this->getRequestParameter('login');
   	$haslo= $this->getRequestParameter('haslo');  
 	
+ if($login == "" || $haslo == "")
+ {
+ 	return $this->getContext()->getController()->redirect('logowanie/loguj?er=blad');
+ }
+	
   if ($login && $haslo) {
  	
   	$c = new Criteria();
@@ -46,7 +51,7 @@ if($u)
 	
 }else{
 	
-	return $this->getContext()->getController()->redirect('logowanie/loguj');
+	return $this->getContext()->getController()->redirect('logowanie/loguj?er=blad');
 }	
  
   
