@@ -50,7 +50,7 @@ if($u)
 	
 	
 }else{
-	echo "Nie zaogowano";
+	echo "Nie zalogowano";
 	return $this->getContext()->getController()->redirect('logowanie/loguj?er=blad');
 }	
  
