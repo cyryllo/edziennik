@@ -20,6 +20,9 @@ body{
 	width: 960px;
 	height: 30px;
 	margin: 0 auto;
+	text-align:center;
+	background-image: url('/images/menu.png');
+	background-repeat:no-repeat;
 }
 
 #content{
