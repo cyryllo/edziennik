@@ -47,7 +47,8 @@ class zapleczeActions extends sfActions
   
   public function executeWyloguj(sfWebRequest $request)
   {
-    
+    $this->getUser()->setAuthenticated(false);
+	return $this->redirect('/logowanie/loguj');
   }
   
 }
