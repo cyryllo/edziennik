@@ -15,6 +15,13 @@ body{
 	height: 100px;	
 	
 }
+
+#menu{
+	width: 960px;
+	height: 30px;
+	margin: 0 auto;
+}
+
 #content{
 	width: 960px;
 	

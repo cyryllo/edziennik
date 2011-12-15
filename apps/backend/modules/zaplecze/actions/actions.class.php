@@ -45,4 +45,9 @@ class zapleczeActions extends sfActions
     
   }
   
+  public function executeWyloguj(sfWebRequest $request)
+  {
+    
+  }
+  
 }
