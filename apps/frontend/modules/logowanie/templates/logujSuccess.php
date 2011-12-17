@@ -1,3 +1,4 @@
+<div id="kontener-logowanie">
 <div id="logowanie"><h2>Logowanie</h2>
 <center>
 	
@@ -19,4 +20,5 @@
 </form>
 </center> 
 <br />
+</div>
 </div>

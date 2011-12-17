@@ -10,6 +10,16 @@ body{
   margin: 0 auto;
   
 }
+#kontener-logowanie
+{
+  position:relative;
+  margin: 0 auto;
+  width: 600px;	
+  height: 841px;
+  background-image: url('/images/dziennik.png');
+  background-repeat:no-repeat;
+  
+}
 #naglowek{
 	width: 960px;
 	height: 100px;	
@@ -31,14 +41,11 @@ body{
 }
 
 #logowanie{
-	position:relative;
+	position:absolute;
 	width: 280px;
-	margin-top: 200px;
-	margin-left: auto;
-    margin-right: auto;
-	background-color: white;
+	padding: 265px 0 0 165px;
 	text-align: center;
-	border:groove;
+	
 	
 	}
 
