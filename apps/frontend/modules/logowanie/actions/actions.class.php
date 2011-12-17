@@ -45,9 +45,28 @@ if($u)
 {
 	echo "Zalogowano";
 	$this->getUser()->setAuthenticated(true);
-    $this->getUser()->addCredentials( $u->getRodzaj());
+	$this->getUser()->setAttribute('login', $u->getLogin());
+	$this->getUser()->clearCredentials();
+	$this->getUser()->addCredential($u->getRodzaj()); // nie działa :/
+	
+
 	
 	
+	if($this->getUser()->hasCredential('admin')){
+		return $this->getContext()->getController()->redirect('/backend.php/zaplecze/admin');
+	}
+	if($this->getUser()->hasCredential('rodzic')){
+		return $this->getContext()->getController()->redirect('/backend.php/zaplecze/rodzic');
+	}
+	if($this->getUser()->hasCredential('naucz')){
+		return $this->getContext()->getController()->redirect('/backend.php/zaplecze/nauczyciel');
+	}
+	if($this->getUser()->hasCredential('sekre')){
+		return $this->getContext()->getController()->redirect('/backend.php/zaplecze/sekretariat');
+	}
+	if($this->getUser()->hasCredential('uczen')){
+		return $this->getContext()->getController()->redirect('/backend.php/zaplecze/uczen');
+	}
 	
 }else{
 	echo "Nie zalogowano";
