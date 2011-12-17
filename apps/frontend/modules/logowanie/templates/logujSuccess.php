@@ -4,7 +4,8 @@
 	
 	<p style="color: red;">
 	<?php
-	if($_GET["er"]== "blad"){
+	$blad = $_GET['er'];
+	if($blad == "blad"){
 		echo "Nieprawidłowy login lub hasło!";
 	}
 	?></p>

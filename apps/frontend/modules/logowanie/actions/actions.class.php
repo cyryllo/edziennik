@@ -51,7 +51,8 @@ if($u)
 	
 }else{
 	echo "Nie zalogowano";
-	return $this->getContext()->getController()->redirect('logowanie/loguj?er=blad');
+	$post['er'] = 'blad';
+	return $this->getContext()->getController()->redirect('logowanie/loguj?'. http_build_query($post));
 }	
  
   
