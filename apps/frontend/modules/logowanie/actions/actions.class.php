@@ -40,16 +40,20 @@ public function executeWeryfikuj($request)
   	$c->add(UzytkownikPeer::LOGIN, $login);
   	$c->add(UzytkownikPeer::HASLO, sha1($haslo));
   	$u = UzytkownikPeer::doSelectOne($c);
-	
+		 
 if($u)
 {
 	echo "Zalogowano";
 	$this->getUser()->setAuthenticated(true);
-	$this->getUser()->setAttribute('login', $u->getLogin());
+	//$this->getUser()->setAttribute('login', $u->getLogin()); /nie działa  źle pobieram dane z zapytania chyba
 	$this->getUser()->clearCredentials();
-	$this->getUser()->addCredential($u->getRodzaj()); // nie działa :/
+	//$this->getUser()->addCredential(array($u->getRodzaj())); // nie działa :/
 	
 
+	
+	if($rodzaj == "admin"){
+		$this->getUser()->addCredential('admin');
+	}
 	
 	
 	if($this->getUser()->hasCredential('admin')){

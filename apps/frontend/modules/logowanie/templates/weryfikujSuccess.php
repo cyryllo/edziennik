@@ -14,7 +14,7 @@ $haslo= $sf_params->get('haslo');
 </ul>
  
 <?php 	
-
+ echo $sf_context->getUser()->setAttribute('login');
  
 
 
