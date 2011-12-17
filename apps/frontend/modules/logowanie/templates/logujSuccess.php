@@ -1,8 +1,7 @@
 <div id="kontener-logowanie">
 <div id="logowanie"><h2>Logowanie</h2>
 <center>
-	
-	<p style="color: red;">
+	<p style="color: red; font-size: 10px;">
 	<?php
 	$blad = $_GET['er'];
 	if($blad == "blad"){
