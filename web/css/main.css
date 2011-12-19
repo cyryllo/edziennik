@@ -10,6 +10,16 @@ body{
   margin: 0 auto;
   
 }
+#kontener-logowanie
+{
+  position:relative;
+  margin: 0 auto;
+  width: 600px;	
+  height: 815px;
+  background-image: url('/images/dziennik_new.jpg');
+  background-repeat:no-repeat;
+  
+}
 #naglowek{
 	width: 960px;
 	height: 100px;	
@@ -31,20 +41,31 @@ body{
 }
 
 #logowanie{
-	position:relative;
+	position:absolute;
 	width: 280px;
-	margin-top: 200px;
-	margin-left: auto;
-    margin-right: auto;
-	background-color: white;
+	padding: 250px 0 0 160px;
 	text-align: center;
-	border:groove;
+	
 	
 	}
 
 #stopka{
+	position:relative;
 	width: 960px;
-	height: 80px;
-	margin-top: 30px;	
+	height: 50px;
+	background-image: url('/images/pen.png');
+	background-repeat:no-repeat;
+	margin-top: 10px;
 	
+	
+	
+	
+}
+#tekst_stopka{
+	position:absolute;
+	width: 200px;
+	height:20px;
+	font-size: 10px;
+	color: purple;
+	padding: 10px 0 0 320px;
 }

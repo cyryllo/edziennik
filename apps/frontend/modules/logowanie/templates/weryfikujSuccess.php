@@ -13,9 +13,3 @@ $haslo= $sf_params->get('haslo');
   
 </ul>
  
-<?php 	
-	
- 
-
-
-?>

@@ -20,6 +20,6 @@ sekretariat:
   is_secure: true
   credentials: sekret
   
-administrator:
-  is_secure: false
-  #credentials: admin
+admin:
+  is_secure: true
+  credentials: admin

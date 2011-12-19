@@ -1,9 +1,10 @@
+<div id="kontener-logowanie">
 <div id="logowanie"><h2>Logowanie</h2>
 <center>
-	
-	<p style="color: red;">
+	<p style="color: red; font-size: 10px;">
 	<?php
-	if($_GET["er"]== "blad"){
+	$blad = $_GET['er'];
+	if($blad == "blad"){
 		echo "Nieprawidłowy login lub hasło!";
 	}
 	?></p>
@@ -19,4 +20,5 @@
 </form>
 </center> 
 <br />
+</div>
 </div>

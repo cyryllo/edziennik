@@ -10,11 +10,10 @@
   </head>
   <body>
   	<div id="kontener">
-  		<div id="naglowek"></div>
   		<div id="content">
     <?php echo $sf_content ?>
     </div>
-    <div id="stopka"></div>
+    <div id="stopka"><p id="tekst_stopka">DIdSP ©2011 by Cyryl Sochacki</p></div>
     </div>
   </body>
 </html>

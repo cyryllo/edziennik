@@ -38,20 +38,47 @@ public function executeWeryfikuj($request)
  	
   	$c = new Criteria();
   	$c->add(UzytkownikPeer::LOGIN, $login);
-  	$c->add(UzytkownikPeer::HASLO, sha1($haslo));
-  	$u = UzytkownikPeer::doSelectOne($c);
+  	$c->addAND(UzytkownikPeer::HASLO, sha1($haslo));
+  	$u = UzytkownikPeer::doSelectOne($c);		
 	
+		 
 if($u)
 {
-	echo "Zalogowano";
+	
 	$this->getUser()->setAuthenticated(true);
-    $this->getUser()->addCredentials( $u->getRodzaj());
+	//$this->getUser()->setAttribute('login', $u->getLogin()); /nie działa  źle pobieram dane z zapytania chyba
+	$this->getUser()->clearCredentials();
+		
+	if($u->getRodzaj() == 'admini'){
+		$this->getUser()->addCredential('admin');
+		return $this->getContext()->getController()->redirect('/backend.php/zaplecze/admin');
+		
+	}
+
+	if($u->getRodzaj() == 'sekret'){
+		$this->getUser()->addCredential('sekret');
+		return $this->getContext()->getController()->redirect('/backend.php/zaplecze/sekretariat');
+	}
 	
+	if($u->getRodzaj() == 'nauczy'){
+		$this->getUser()->addCredential('naucz');
+		return $this->getContext()->getController()->redirect('/backend.php/zaplecze/nauczyciel');
+	}
+
 	
+	if($u->getRodzaj() == 'rodzic'){
+		$this->getUser()->addCredential('rodzic');
+		return $this->getContext()->getController()->redirect('/backend.php/zaplecze/rodzic');
+	}
+		
+	if($u->getRodzaj() == 'uczens'){
+		$this->getUser()->addCredential('uczen');
+		return $this->getContext()->getController()->redirect('/backend.php/zaplecze/uczen');
+	}
 	
 }else{
-	echo "Nie zalogowano";
-	return $this->getContext()->getController()->redirect('logowanie/loguj?er=blad');
+	$post['er'] = 'blad';
+	return $this->getContext()->getController()->redirect('logowanie/loguj?'. http_build_query($post));
 }	
  
   
