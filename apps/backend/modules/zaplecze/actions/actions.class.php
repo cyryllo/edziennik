@@ -47,11 +47,11 @@ class zapleczeActions extends sfActions
   
   public function executeWyloguj(sfWebRequest $request)
   {
-<<<<<<< HEAD
+
     $this->getUser()->setAuthenticated(false);
-=======
+
     $this->getUser()->setAuthenticated(FALSE);
->>>>>>> 8a85a8d07841d4458f47489278f2801d09a3a25f
+    
 	return $this->redirect('/logowanie/loguj');
   }
   
