@@ -3,3 +3,4 @@
 *.pyo
 cache/
 log/
+config/databases.yml

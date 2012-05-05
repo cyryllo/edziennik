@@ -3,9 +3,9 @@ all:
     class: sfPropelDatabase
     param:
       classname: PropelPDO
-      dsn: 'pgsql:host=localhost;dbname=edziennik'
-      username: dziennik
-      password: '12345'
+      dsn: 'pgsql:host=192.168.1.12;dbname=edziennik'
+      username: cyryl
+      password: '5015cs82cs'
       encoding: utf8
       persistent: true
       pooling: true
