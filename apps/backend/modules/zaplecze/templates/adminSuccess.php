@@ -11,7 +11,7 @@
  
 </div>
 <div>
-	Ostatnie zdarzenia:
+	Ostatnie operacje:
 	
 	
 </div>
