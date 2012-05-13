@@ -1,3 +1,5 @@
+<div>
+
 <form action="<?php echo url_for('logowanie/zapiszuzytkowika') ?>" method="post">
  <table>
     <?php echo $form ?>
@@ -8,3 +10,5 @@
     </tr>
   </table>
 </form>
+
+</div>
