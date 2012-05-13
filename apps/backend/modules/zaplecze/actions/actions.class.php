@@ -45,6 +45,17 @@ class zapleczeActions extends sfActions
     
   }
   
+  public function executeUsers(sfWebRequest $request)
+  {
+    
+  }
+  
+  public function executeDodajusera(sfWebRequest $request)
+  {
+    
+  }
+  
+  
   public function executeWyloguj(sfWebRequest $request)
   {
 
