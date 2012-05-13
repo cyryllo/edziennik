@@ -7,7 +7,8 @@
  
 </div>
 <div>
-
+<br />
+<b>Dodawanie użytkownika.</b><br /><br />
 <form action="<?php echo url_for('dodajuzytkownika/zapiszuzytkowika') ?>" method="post">
  <table>
     <?php echo $form ?>
