@@ -52,7 +52,7 @@ class zapleczeActions extends sfActions
   
   public function executeDodajusera(sfWebRequest $request)
   {
-    
+    $this->form = new DodajuseraForm();
   }
   
   
