@@ -1,5 +1,5 @@
 <?php
-class DodajuseraForm extends BaseForm
+class DodajuForm extends BaseForm
 {
   public function configure()
   {

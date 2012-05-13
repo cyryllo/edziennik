@@ -1,6 +1,6 @@
 <div>
 
-<form action="<?php echo url_for('logowanie/zapiszuzytkowika') ?>" method="post">
+<form action="<?php echo url_for('dodajuzytkownika/zapiszuzytkowika') ?>" method="post">
  <table>
     <?php echo $form ?>
     <tr>

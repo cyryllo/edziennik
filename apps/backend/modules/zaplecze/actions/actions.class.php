@@ -49,13 +49,7 @@ class zapleczeActions extends sfActions
   {
     
   }
-  
-  public function executeDodajusera(sfWebRequest $request)
-  {
-    $this->form = new DodajuseraForm();
-  }
-  
-  
+    
   public function executeWyloguj(sfWebRequest $request)
   {
 
@@ -66,4 +60,17 @@ class zapleczeActions extends sfActions
 	return $this->redirect('/logowanie/loguj');
   }
   
+}
+
+class dodajuActions extends sfActions
+{
+ /**
+  * Executes index action
+  *
+  * @param sfRequest $request A request object
+  */
+  public function executeDodaju(sfWebRequest $request)
+  {
+	$this->form = new DodajuForm();
+  }
 }
