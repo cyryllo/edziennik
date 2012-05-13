@@ -5,7 +5,7 @@ all:
       classname: PropelPDO
       dsn: 'pgsql:host=cyryllo.no-ip.org;dbname=edziennik'
       username: cyryl
-      password: 'XXXXX0'
+      password: 'XXXss0'
       encoding: utf8
       persistent: true
       pooling: true
