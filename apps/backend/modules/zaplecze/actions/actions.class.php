@@ -79,4 +79,18 @@ class zapleczeActions extends sfActions
 	
   }
   
+  public function executeKlasy(sfWebRequest $request)
+  {
+	
+  }
+  
+  public function executePlanlekcji(sfWebRequest $request)
+  {
+	
+  }
+  public function executeSemestry(sfWebRequest $request)
+  {
+	
+  }
+  
 }
