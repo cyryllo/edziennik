@@ -14,7 +14,7 @@
   		<div id="content">
     <?php echo $sf_content ?>
     </div>
-    <div id="stopka"><p id="tekst_stopka">DIdSP ©2011 by Cyryl Sochacki</p></div>
+    <div id="stopka"><p id="tekst_stopka">.:| DIdSP ©2011-2012 by C. Sochacki .:|:. ver. 0.01a |:.</p></div>
     </div>
   </body>
 </html>

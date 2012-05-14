@@ -45,6 +45,7 @@ body{
 	width: 280px;
 	padding: 250px 0 0 160px;
 	text-align: center;
+	font-family:"Times New Roman",Georgia,Serif;
 	
 	
 	}
@@ -63,9 +64,11 @@ body{
 }
 #tekst_stopka{
 	position:absolute;
-	width: 200px;
+	
+	width: 240px;
 	height:20px;
+	font-family:"Times New Roman",Georgia,Serif;
 	font-size: 10px;
 	color: purple;
-	padding: 10px 0 0 320px;
+	padding: 10px 0 0 260px;
 }
