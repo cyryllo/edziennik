@@ -65,4 +65,13 @@ class zapleczeActions extends sfActions
 	$this->form = new DodajuForm();
   }
   
+  public function executeTablicaocen(sfWebRequest $request)
+  {
+	
+  }
+  public function executeDodajto(sfWebRequest $request)
+  {
+	$this->form = new DodajtoForm();
+  }
+  
 }
