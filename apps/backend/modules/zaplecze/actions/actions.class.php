@@ -74,4 +74,9 @@ class zapleczeActions extends sfActions
 	$this->form = new DodajtoForm();
   }
   
+  public function executeGrupy(sfWebRequest $request)
+  {
+	
+  }
+  
 }
