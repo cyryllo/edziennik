@@ -768,50 +768,21 @@ abstract class BaseUzytkownik extends BaseObject  implements Persistent {
 	} // setDataurodzin()
 
 	/**
-	 * Sets the value of [miejsceurodzin] column to a normalized version of the date/time value specified.
+	 * Set the value of [miejsceurodzin] column.
 	 * 
-	 * @param      mixed $v string, integer (timestamp), or DateTime value.  Empty string will
-	 *						be treated as NULL for temporal objects.
+	 * @param      int $v new value
 	 * @return     Uzytkownik The current object (for fluent API support)
 	 */
 	public function setMiejsceurodzin($v)
 	{
-		// we treat '' as NULL for temporal objects because DateTime('') == DateTime('now')
-		// -- which is unexpected, to say the least.
-		if ($v === null || $v === '') {
-			$dt = null;
-		} elseif ($v instanceof DateTime) {
-			$dt = $v;
-		} else {
-			// some string/numeric value passed; we normalize that so that we can
-			// validate it.
-			try {
-				if (is_numeric($v)) { // if it's a unix timestamp
-					$dt = new DateTime('@'.$v, new DateTimeZone('UTC'));
-					// We have to explicitly specify and then change the time zone because of a
-					// DateTime bug: http://bugs.php.net/bug.php?id=43003
-					$dt->setTimeZone(new DateTimeZone(date_default_timezone_get()));
-				} else {
-					$dt = new DateTime($v);
-				}
-			} catch (Exception $x) {
-				throw new PropelException('Error parsing date/time value: ' . var_export($v, true), $x);
-			}
+		if ($v !== null) {
+			$v = (int) $v;
 		}
 
-		if ( $this->miejsceurodzin !== null || $dt !== null ) {
-			// (nested ifs are a little easier to read in this case)
-
-			$currNorm = ($this->miejsceurodzin !== null && $tmpDt = new DateTime($this->miejsceurodzin)) ? $tmpDt->format('Y-m-d') : null;
-			$newNorm = ($dt !== null) ? $dt->format('Y-m-d') : null;
-
-			if ( ($currNorm !== $newNorm) // normalized values don't match 
-					)
-			{
-				$this->miejsceurodzin = ($dt ? $dt->format('Y-m-d') : null);
-				$this->modifiedColumns[] = UzytkownikPeer::MIEJSCEURODZIN;
-			}
-		} // if either are not null
+		if ($this->miejsceurodzin !== $v) {
+			$this->miejsceurodzin = $v;
+			$this->modifiedColumns[] = UzytkownikPeer::MIEJSCEURODZIN;
+		}
 
 		return $this;
 	} // setMiejsceurodzin()
