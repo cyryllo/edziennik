@@ -69,10 +69,10 @@ body{
 #tekst_stopka{
 	position:absolute;
 	
-	width: 240px;
+	width: 250px;
 	height:20px;
 	font-family:"Times New Roman",Georgia,Serif;
 	font-size: 10px;
 	color: purple;
-	padding: 10px 0 0 260px;
+	padding: 10px 0 0 250px;
 }

@@ -84,13 +84,30 @@ class zapleczeActions extends sfActions
 	
   }
   
+  
   public function executePlanlekcji(sfWebRequest $request)
   {
 	
   }
+  public function executeDodajpl(sfWebRequest $request)
+  {
+	$this->form = new DodajplForm();
+  }
+  
+  
   public function executeSemestry(sfWebRequest $request)
   {
 	
   }
+  public function executeDodajg(sfWebRequest $request)
+  {
+	$this->form = new DodajgForm();
+  }
+  
+  public function executeDodajk(sfWebRequest $request)
+  {
+	$this->form = new DodajkForm();
+  }
+  
   
 }
