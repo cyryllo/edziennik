@@ -49,29 +49,29 @@ if($u)
 	//$this->getUser()->setAttribute('login', $u->getLogin()); /nie działa  źle pobieram dane z zapytania chyba
 	$this->getUser()->clearCredentials();
 		
-	if($u->getRodzaj() == 'admini'){
+	if($u->getRodzaj() == 'a'){
 		$this->getUser()->addCredential('admin');
 		return $this->getContext()->getController()->redirect('/backend.php/zaplecze/admin');
 		
 	}
 
-	if($u->getRodzaj() == 'sekret'){
+	if($u->getRodzaj() == 's'){
 		$this->getUser()->addCredential('sekret');
 		return $this->getContext()->getController()->redirect('/backend.php/zaplecze/sekretariat');
 	}
 	
-	if($u->getRodzaj() == 'nauczy'){
+	if($u->getRodzaj() == 'n'){
 		$this->getUser()->addCredential('naucz');
 		return $this->getContext()->getController()->redirect('/backend.php/zaplecze/nauczyciel');
 	}
 
 	
-	if($u->getRodzaj() == 'rodzic'){
+	if($u->getRodzaj() == 'r'){
 		$this->getUser()->addCredential('rodzic');
 		return $this->getContext()->getController()->redirect('/backend.php/zaplecze/rodzic');
 	}
 		
-	if($u->getRodzaj() == 'uczens'){
+	if($u->getRodzaj() == 'u'){
 		$this->getUser()->addCredential('uczen');
 		return $this->getContext()->getController()->redirect('/backend.php/zaplecze/uczen');
 	}
