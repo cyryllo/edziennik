@@ -10,7 +10,7 @@
 <div>
 <br />
 <b>Dodawanie użytkownika.</b><br /><br />
-<form action="<?php echo url_for('zaplecze/zapiszuzytkowika') ?>" method="post">
+<form action="<?php echo url_for('zaplecze/zapiszu') ?>" method="post">
  <table>
     <?php echo $form ?>
     <tr>

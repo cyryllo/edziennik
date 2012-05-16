@@ -7,7 +7,14 @@
  
 </div>
 <div>
-	Lista uzytkowników:
+	Lista uzytkowników:<br />
+	<?php
+	$c = new Criteria();
+	$uzytkownicy = UzytkownikPeer::doSelect($c);
 	
-	
+	foreach ($uzytkownicy as $ludzie) {
+  echo $ludzie->getImie()." ".$ludzie->getNazwisko();
+		
+}
+	?>
 </div>
