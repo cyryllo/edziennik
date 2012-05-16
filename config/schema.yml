@@ -44,7 +44,7 @@ propel:
     id: { phpName: Id, type: INTEGER, primaryKey: true, required: true }
     pupil: { phpName: Pupil, type: INTEGER, required: true, foreignTable: uzytkownik, foreignReference: id }
     ocena_id: { phpName: OcenaId, type: INTEGER, required: true, foreignTable: tablicaocen, foreignReference: id }
-    waga: { phpName: Waga, type: VARCHAR, required: true, defaultValue: '1' }
+    waga: { phpName: Waga, type: VARCHAR, size: '255', required: true, defaultValue: '1' }
     nauczyciel_id: { phpName: NauczycielId, type: INTEGER, required: true, foreignTable: uzytkownik, foreignReference: id }
     przedmiot_id: { phpName: PrzedmiotId, type: INTEGER, required: true, foreignTable: przedmiot, foreignReference: id }
     semestr_id: { phpName: SemestrId, type: INTEGER, required: true, foreignTable: semestr, foreignReference: id }
@@ -76,7 +76,7 @@ propel:
     _attributes: { phpName: Tablicaocen }
     id: { phpName: Id, type: INTEGER, primaryKey: true, required: true }
     nazwa: { phpName: Nazwa, type: LONGVARCHAR, required: false }
-    wartosc: { phpName: Wartosc, type: VARCHAR, required: false }
+    wartosc: { phpName: Wartosc, type: VARCHAR, size: '255', required: false }
   usprawiedliwienie:
     _attributes: { phpName: Usprawiedliwienie }
     id: { phpName: Id, type: BIGINT, primaryKey: true, autoIncrement: true, required: true }
@@ -91,8 +91,8 @@ propel:
     info: { phpName: Info, type: LONGVARCHAR, required: false }
   uzytkownik:
     _attributes: { phpName: Uzytkownik }
-    id: { phpName: Id, type: INTEGER, primaryKey: true, required: true }
-    rodzaj: { phpName: Rodzaj, type: CHAR, size: '6', required: false }
+    id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
+    rodzaj: { phpName: Rodzaj, type: CHAR, size: '1', required: false }
     imie: { phpName: Imie, type: LONGVARCHAR, required: false }
     nazwisko: { phpName: Nazwisko, type: LONGVARCHAR, required: false }
     login: { phpName: Login, type: LONGVARCHAR, required: true }
@@ -102,7 +102,7 @@ propel:
     klasa_id: { phpName: KlasaId, type: INTEGER, required: false }
     pesel: { phpName: Pesel, type: INTEGER, required: false }
     dataurodzin: { phpName: Dataurodzin, type: DATE, required: false }
-    miejsceurodzin: { phpName: Miejsceurodzin, type: DATE, required: false }
+    miejsceurodzin: { phpName: Miejsceurodzin, type: LONGVARCHAR, required: false }
     ojciec: { phpName: Ojciec, type: INTEGER, required: false }
     matka: { phpName: Matka, type: INTEGER, required: false }
     ulica: { phpName: Ulica, type: LONGVARCHAR, required: false }

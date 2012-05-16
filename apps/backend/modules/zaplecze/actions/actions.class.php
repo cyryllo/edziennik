@@ -70,7 +70,7 @@ class zapleczeActions extends sfActions
 	$zapiszludka->setKlasaId($this->getRequestParameter('klasa'));
 	$zapiszludka->setPesel($this->getRequestParameter('pesel'));
 	$zapiszludka->setDataurodzin($this->getRequestParameter('dataur'));
-	$zapiszludka->setMiejsceurodzin($this->getRequestParameter('miejsceurodzin'));
+	$zapiszludka->setMiejsceurodzin($this->getRequestParameter('urodzonyw'));
 	$zapiszludka->setOjciec($this->getRequestParameter('tata'));
 	$zapiszludka->setMatka($this->getRequestParameter('mama'));
 	$zapiszludka->setUlica($this->getRequestParameter('ulica'));
