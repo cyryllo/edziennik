@@ -52,53 +52,37 @@ class zapleczeActions extends sfActions
 	
   }
   
-  public function executeZapiszu(sfWebRequest $request)
+	public function executeZapiszu(sfWebRequest $request)
   {
     //sprawdzenie czy przypadkiem użytkownik nie próbuje swoich danych w adresie przesłać
 	$this->forward404Unless($request->isMethod('post'));
   
-	$rodzaj= $this->getRequestParameter('rodzaj');
-	$imie= $this->getRequestParameter('imie');
-  	$haslo= $this->getRequestParameter('haslo');
-	$email= $this->getRequestParameter('email');
-	$telefon= $this->getRequestParameter('telefon');
-	$klasa= $this->getRequestParameter('klasa');
-	$pesel= $this->getRequestParameter('pesel');
-	$data_ur= $this->getRequestParameter('data');
-	$miejsceurodzenia= $this->getRequestParameter('miejsceurodzenia');
-	$ojciec= $this->getRequestParameter('tata');
-	$mama= $this->getRequestParameter('mama');
-	$ulica= $this->getRequestParameter('ulica');
-	$nrdomu= $this->getRequestParameter('nrdomu');
-	$kod= $this->getRequestParameter('kodpocztowy');
-	$panstwo= $this->getRequestParameter('panstwo');
-	$info= $this->getRequestParameter('info');
-	$status= $this->getRequestParameter('status');
 	
-	$zapiszludka = new Zapiszludka();
-	$zapiszludka->setRodzaj($rodzaj);
-    $zapiszludka->setImie($imie);
-	$zapiszludka->setNazwisko($nazwisko);
-	$zapiszludka->setHaslo($haslo);
-	$zapiszludka->setEmail($email);
-	$zapiszludka->setTelefon($telefon);
-	$zapiszludka->setKlasaId($klasa);
-	$zapiszludka->setPesel($pesel);
-	$zapiszludka->setDataurodzin($data_ur);
-	$zapiszludka->setMiejsceurodzin($miejsceurodzenia);
-	$zapiszludka->setOjciec($ojciec);
-	$zapiszludka->setMatka($mama);
-	$zapiszludka->setUlica($ulica);
-	$zapiszludka->setDataurodzin($data);
-	$zapiszludka->setNrdomu($nrdomu);
-	$zapiszludka->setKodpocztowy($kod);
-	$zapiszludka->setPanstwo($panstwo);
-	$zapiszludka->setInfo($info);
-	$zapiszludka->setAktywny($status);
+	$zapiszludka = new Uzytkownik();
+	//$zapiszludka->setId();
+	$zapiszludka->setRodzaj($this->getRequestParameter('rodzaj'));
+    $zapiszludka->setImie($this->getRequestParameter('imie'));
+	$zapiszludka->setNazwisko($this->getRequestParameter('nazwisko'));
+	$zapiszludka->setLogin($this->getRequestParameter('login'));
+	$zapiszludka->setHaslo(sha1($this->getRequestParameter('haslo')));
+	$zapiszludka->setEmail($this->getRequestParameter('email'));
+	$zapiszludka->setTelefon($this->getRequestParameter('telefon'));
+	$zapiszludka->setKlasaId($this->getRequestParameter('klasa'));
+	$zapiszludka->setPesel($this->getRequestParameter('pesel'));
+	$zapiszludka->setDataurodzin($this->getRequestParameter('dataur'));
+	$zapiszludka->setMiejsceurodzin($this->getRequestParameter('miejsceurodzin'));
+	$zapiszludka->setOjciec($this->getRequestParameter('tata'));
+	$zapiszludka->setMatka($this->getRequestParameter('mama'));
+	$zapiszludka->setUlica($this->getRequestParameter('ulica'));
+	$zapiszludka->setNrdomu($this->getRequestParameter('nrdomu'));
+	$zapiszludka->setKodpocztowy($this->getRequestParameter('kodpocztowy'));
+	$zapiszludka->setPanstwo($this->getRequestParameter('panstwo'));
+	$zapiszludka->setInfo($this->getRequestParameter('info'));
+	$zapiszludka->setAktywny($this->getRequestParameter('status'));
 	$zapiszludka->save();
 	
   }
-  
+	
     
   public function executeWyloguj(sfWebRequest $request)
   {
@@ -166,3 +150,4 @@ class zapleczeActions extends sfActions
   
   
 }
+

@@ -13,7 +13,7 @@
 	$uzytkownicy = UzytkownikPeer::doSelect($c);
 	
 	foreach ($uzytkownicy as $ludzie) {
-  echo $ludzie->getImie()." ".$ludzie->getNazwisko();
+  echo $ludzie->getImie()." ".$ludzie->getNazwisko()."<br />";
 		
 }
 	?>
