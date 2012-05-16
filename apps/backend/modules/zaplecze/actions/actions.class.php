@@ -109,5 +109,10 @@ class zapleczeActions extends sfActions
 	$this->form = new DodajkForm();
   }
   
+  public function executeMkonto(sfWebRequest $request)
+  {
+	
+  }
+  
   
 }

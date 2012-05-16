@@ -24,7 +24,7 @@ class DodajuForm extends BaseForm
       'ulica'    => new sfWidgetFormInputText(array('label' => 'Ulica'),array('size' => 14)),
       'nrdomu'    => new sfWidgetFormInputText(array('label' => 'Nr domu'),array('size' => 14)),
       'kodpocztowy'    => new sfWidgetFormInputText(array('label' => 'Kod pocztowy'),array('size' => 6)),
-      'panstwo'   => new sfWidgetFormI18nChoiceCountry(array('culture' => 'pl')),
+      'panstwo'   => new sfWidgetFormI18nChoiceCountry(array('culture' => 'pl','add_empty' => true,'default' => 'PL', 'label' => 'Państwo')),
       'info'	=>	new sfWidgetFormTextarea(array('label' => 'Dodatkowe informacje')),
       'status'	=>	new sfWidgetFormSelect(array('choices' => self::$yon, 'label' => 'Aktywny'), array()),
       ));

@@ -6,6 +6,7 @@
 	 <a href="<?php echo url_for('zaplecze/klasy') ?>"><img src="/images/klasy.png" alt="Klasy" /></a>
 	 <a href="<?php echo url_for('zaplecze/planlekcji') ?>"><img src="/images/planlekcji.png" alt="Plan lekcji" /></a>
 	 <a href="<?php echo url_for('zaplecze/semestry') ?>"><img src="/images/semestry.png" alt="Semestry" /></a> .:.
+	 <a href="<?php echo url_for('zaplecze/mkonto') ?>" title="Moje konto"><img src="/images/mkonto.png" alt="Moje konto" /></a>
 	 <a href="<?php echo url_for('zaplecze/wyloguj') ?>" title="Wyloguj się z dziennika"><img src="/images/wyloguj.png" alt="Wyloguj" /></a>
 	 
  
