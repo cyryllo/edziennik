@@ -17,7 +17,7 @@ class DodajuForm extends BaseForm
       'telefon'    => new sfWidgetFormInputText(array('label' => 'Telefon'),array('size' => 14)),
       'klasa'	=>	new sfWidgetFormSelect(array('choices' => self::$klasy, 'label' => 'Klasa'), array()),
       'pesel'    => new sfWidgetFormInputText(array('label' => 'Pesel'),array('size' => 14)),
-      'data'	=> new sfWidgetFormDate(array('format' => '%year% - %month% - %day%','years' => array_combine($lata, $lata), 'label' => 'Data urodzenia')),
+      'data'	=> new sfWidgetFormI18nDate(array('format' => '%day%  %month%  %year%', 'culture' => 'pl', 'years' => array_combine($lata, $lata), 'label' => 'Data urodzenia')),
       'matka'    => new sfWidgetFormInputText(array('label' => 'Mama'),array('size' => 14)),
       'tata'    => new sfWidgetFormInputText(array('label' => 'Tata'),array('size' => 14)),
       'miejsceurodzenia'    => new sfWidgetFormInputText(array('label' => 'Miejsce urodzenia'),array('size' => 14)),
