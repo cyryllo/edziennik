@@ -4,6 +4,7 @@ class DodajuForm extends BaseForm
   protected static $rodzaje = array('u' => 'Uczeń', 'r' => 'Rodzic', 'n' => 'Nauczyciel', 's' => 'Sekretarka', 'd' => 'Dyrektor', 'a' => 'Administrator');
   protected static $yon = array('1' => 'Tak', '0' => 'Nie');
   protected static $klasy = array('0' => 'Brak', '1' => '1E');
+  protected static $rodzice = array('0' => 'Brak');
   public function configure()
   {
   	$lata = range(date('Y')-60, date('Y'));
@@ -19,8 +20,8 @@ class DodajuForm extends BaseForm
       'pesel'    => new sfWidgetFormInputText(array('label' => 'Pesel'),array('size' => 14)),
       'dataur'	=> new sfWidgetFormI18nDate(array('format' => '%day%  %month%  %year%', 'culture' => 'pl', 'years' => array_combine($lata, $lata), 'label' => 'Data urodzenia')),
       'urodzonyw' => new sfWidgetFormInputText(array('label' => 'Miejsce urodzenia'),array('size' => 14)),
-      'matka'    => new sfWidgetFormInputText(array('label' => 'Mama'),array('size' => 14)),
-      'tata'    => new sfWidgetFormInputText(array('label' => 'Tata'),array('size' => 14)),
+      'matka'  =>  new sfWidgetFormSelect(array('choices' => self::$rodzice), array('label' => 'Mama')),
+      'tata'    =>  new sfWidgetFormSelect(array('choices' => self::$rodzice), array('label' => 'Tata')),
       'ulica'    => new sfWidgetFormInputText(array('label' => 'Ulica'),array('size' => 14)),
       'nrdomu'    => new sfWidgetFormInputText(array('label' => 'Nr domu'),array('size' => 14)),
       'kodpocztowy'    => new sfWidgetFormInputText(array('label' => 'Kod pocztowy'),array('size' => 6)),
