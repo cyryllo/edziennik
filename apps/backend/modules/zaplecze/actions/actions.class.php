@@ -148,6 +148,11 @@ class zapleczeActions extends sfActions
 	
   }
   
+  public function executeListaklas(sfWebRequest $request)
+  {
+	// pobieranie z bazy listy klas
+  }
+  
   
 }
 
