@@ -8,7 +8,7 @@ class DodajuForm extends BaseForm
   
   public function configure()
   {
-   	$lata = range(date('Y')-60, date('Y'));
+  	$lata = range(date('Y')-60, date('Y'));
     $this->setWidgets(array(
       'rodzaj' => new sfWidgetFormSelect(array('choices' => self::$rodzaje), array('label' => 'Rodzaj')),
       'imie'    => new sfWidgetFormInputText(array('label' => 'Imię'),array('size' => 14)),
