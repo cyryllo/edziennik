@@ -153,6 +153,11 @@ class zapleczeActions extends sfActions
 	// pobieranie z bazy listy klas
   }
   
+  public function executeRodzice(sfWebRequest $request)
+  {
+	// pobieranie z bazy listy rodziców
+  }
+  
   
 }
 

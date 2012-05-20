@@ -8,7 +8,18 @@
  
 </div>
 <div>
-	Grupy:
+	Grupy:<br />
+	
+	<?php
+	$c = new Criteria();
+	$grupy = GrupyPeer::doSelect($c);
+	
+	foreach ($grupy as $grupa) {
+     echo $grupa->getPupil()." ".$grupa->getGrupa()."<br />";
+		
+}
+	?>
+	
 	
 	
 </div>

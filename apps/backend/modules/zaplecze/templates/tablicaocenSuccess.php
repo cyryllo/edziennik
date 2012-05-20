@@ -7,7 +7,16 @@
  
 </div>
 <div>
-	Tablica ocen:
+	Tablica ocen:<br />
 	
+	<?php
+	$c = new Criteria();
+	$tablica = TablicaocenPeer::doSelect($c);
+	
+	foreach ($tablica as $tabl) {
+     echo $tabl->getNazwa()." ".$tabl->getWartosc()."<br />";
+		
+}
+	?>
 	
 </div>

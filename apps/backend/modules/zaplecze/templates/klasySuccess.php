@@ -8,7 +8,17 @@
  
 </div>
 <div>
-	Klasy:
+	Klasy:<br />
+	
+	<?php
+	$c = new Criteria();
+	$klasy = KlasyPeer::doSelect($c);
+	
+	foreach ($klasy as $klasa) {
+     echo $klasa->getPoziom().$klasa->getZnak()." Wychowawca: ".$klasa->getWychowawca()."<br />";
+		
+}
+	?>
 	
 	
 </div>
