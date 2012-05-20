@@ -5,9 +5,10 @@ class DodajuForm extends BaseForm
   protected static $yon = array('1' => 'Tak', '0' => 'Nie');
   protected static $klasy = array('0' => 'Brak', '1' => '1E');
   protected static $rodzice = array('0' => 'Brak');
+  
   public function configure()
   {
-  	$lata = range(date('Y')-60, date('Y'));
+   	$lata = range(date('Y')-60, date('Y'));
     $this->setWidgets(array(
       'rodzaj' => new sfWidgetFormSelect(array('choices' => self::$rodzaje), array('label' => 'Rodzaj')),
       'imie'    => new sfWidgetFormInputText(array('label' => 'Imię'),array('size' => 14)),
