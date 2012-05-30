@@ -33,7 +33,7 @@ class zapleczeActions extends sfActions
     
   }
   //-----------------------------------NAUCZYCIEL ----------------------------------
-  public function executeNuczyciel(sfWebRequest $request)
+  public function executeNauczyciel(sfWebRequest $request)
   {
     
   }
