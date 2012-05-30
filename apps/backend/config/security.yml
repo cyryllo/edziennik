@@ -26,52 +26,52 @@ admin:
   
 dodajg:
   is_secure: true
-  credentials: admin
+  credentials: [[ admin, sekret ]] 
   
 dodajk:
   is_secure: true
-  credentials: admin
+  credentials: [[ admin, sekret ]] 
   
 dodajpl:
   is_secure: true
-  credentials: admin
+  credentials: [[ admin, sekret ]] 
   
 dodajse:
   is_secure: true
-  credentials: admin
+  credentials: [[ admin, sekret ]] 
   
 dodajto:
   is_secure: true
-  credentials: admin
+  credentials: [[ admin, sekret ]] 
   
 dodaju:
   is_secure: true
-  credentials: admin
+  credentials: [[ admin, sekret ]] 
   
 grupy:
   is_secure: true
-  credentials: admin
+  credentials: [[ admin, sekret ]] 
   
 klasy:
   is_secure: true
-  credentials: admin
+  credentials: [[ admin, sekret ]] 
   
 mkonto:
   is_secure: true
-  credentials: admin
+  credentials: [[ admin, sekret ]] 
   
 planlekcji:
   is_secure: true
-  credentials: admin
+  credentials: [[ admin, sekret ]] 
   
 semestry:
   is_secure: true
-  credentials: admin
+  credentials: [[ admin, sekret ]] 
   
 tablicaocen:
   is_secure: true
-  credentials: admin
+  credentials: [[ admin, sekret ]] 
   
 users:
   is_secure: true
-  credentials: admin
+  credentials: [[ admin, sekret ]] 
