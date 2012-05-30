@@ -23,3 +23,55 @@ sekretariat:
 admin:
   is_secure: true
   credentials: admin
+  
+dodajg:
+  is_secure: true
+  credentials: admin
+  
+dodajk:
+  is_secure: true
+  credentials: admin
+  
+dodajpl:
+  is_secure: true
+  credentials: admin
+  
+dodajse:
+  is_secure: true
+  credentials: admin
+  
+dodajto:
+  is_secure: true
+  credentials: admin
+  
+dodaju:
+  is_secure: true
+  credentials: admin
+  
+grupy:
+  is_secure: true
+  credentials: admin
+  
+klasy:
+  is_secure: true
+  credentials: admin
+  
+mkonto:
+  is_secure: true
+  credentials: admin
+  
+planlekcji:
+  is_secure: true
+  credentials: admin
+  
+semestry:
+  is_secure: true
+  credentials: admin
+  
+tablicaocen:
+  is_secure: true
+  credentials: admin
+  
+users:
+  is_secure: true
+  credentials: admin
