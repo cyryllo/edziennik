@@ -18,5 +18,13 @@ class DodajkForm extends BaseTablicaocenForm
   	'wychowawca'	=> new sfWidgetFormInputText(array('label' => 'Wychowawca'),array('size' => 14)),
   	'rocznik'	=> new sfWidgetFormInputText(array('label' => 'Rocznik'),array('size' => 1))
 	));
+	
+	$this->setValidators(array(
+      'poziom'       => new sfValidatorInteger(array('min' => -2147483648, 'max' => 2147483647, 'required' => false)),
+      'znak'         => new sfValidatorString(array('required' => true)),
+      'opis'         => new sfValidatorString(array('required' => false)),
+      'wychowawca'   => new sfValidatorInteger(array('min' => 0, 'max' => 2147483647, 'required' => false)),
+      'startsemestr' => new sfValidatorInteger(array('min' => 0, 'max' => 2147483647, 'required' => false)),
+    ));
   }
 }

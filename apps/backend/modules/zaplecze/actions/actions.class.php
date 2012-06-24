@@ -136,6 +136,7 @@ class zapleczeActions extends sfActions
   public function executeDodajg(sfWebRequest $request)
   {
 	$this->form = new DodajgForm();
+	
   }
   
   public function executeDodajk(sfWebRequest $request)
