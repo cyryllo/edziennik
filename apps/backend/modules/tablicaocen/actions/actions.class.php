@@ -9,7 +9,7 @@
  */
 class tablicaocenActions extends sfActions
 {
-  public function executeIndex(sfWebRequest $request)
+  public function executeIndexto(sfWebRequest $request)
   {
     $this->Tablicaocens = TablicaocenPeer::doSelect(new Criteria());
   }

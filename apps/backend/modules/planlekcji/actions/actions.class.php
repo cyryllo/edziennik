@@ -9,7 +9,7 @@
  */
 class planlekcjiActions extends sfActions
 {
-  public function executeIndex(sfWebRequest $request)
+  public function executeIndexpl(sfWebRequest $request)
   {
     $this->Planlekcjis = PlanlekcjiPeer::doSelect(new Criteria());
   }

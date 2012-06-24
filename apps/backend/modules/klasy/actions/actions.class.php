@@ -9,7 +9,7 @@
  */
 class klasyActions extends sfActions
 {
-  public function executeIndex(sfWebRequest $request)
+  public function executeIndexk(sfWebRequest $request)
   {
     $this->Klasys = KlasyPeer::doSelect(new Criteria());
   }

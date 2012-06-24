@@ -9,7 +9,7 @@
  */
 class przedmiotActions extends sfActions
 {
-  public function executeIndex(sfWebRequest $request)
+  public function executeIndexp(sfWebRequest $request)
   {
     $this->Przedmiots = PrzedmiotPeer::doSelect(new Criteria());
   }

@@ -9,7 +9,7 @@
  */
 class semestrActions extends sfActions
 {
-  public function executeIndex(sfWebRequest $request)
+  public function executeIndexse(sfWebRequest $request)
   {
     $this->Semestrs = SemestrPeer::doSelect(new Criteria());
   }
