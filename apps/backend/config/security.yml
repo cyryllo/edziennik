@@ -1,0 +1,30 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/08-Security
+
+default:
+  is_secure: false
+
+indexu:
+  is_secure: true
+  credentials: uczen
+ 
+indexr:
+  is_secure: true
+  credentials: rodzic
+  
+indexn:
+  is_secure: true
+  credentials: naucz
+  
+indexs:
+  is_secure: true
+  credentials: sekret
+  
+indexd:
+  is_secure: true
+  credentials: admin
+ 
+# Grupy  
+indexg:
+  is_secure: true
+  credentials: [[[ admin, sekret, naucz ]]] 

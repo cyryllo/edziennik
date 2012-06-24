@@ -1,0 +1,113 @@
+propel:
+  _attributes:
+    package: lib.model
+    defaultIdMethod: native
+  dyplomy:
+    _attributes: { phpName: Dyplomy }
+    id: { phpName: Id, type: INTEGER, primaryKey: true, required: true }
+    pupil: { phpName: Pupil, type: INTEGER, required: true, foreignTable: uzytkownik, foreignReference: id }
+    semestr_id: { phpName: SemestrId, type: INTEGER, required: true, foreignTable: semestr, foreignReference: id }
+    przedmiot_id: { phpName: PrzedmiotId, type: INTEGER, required: true, foreignTable: przedmiot, foreignReference: id }
+    ocenadyplomu: { phpName: Ocenadyplomu, type: INTEGER, required: true }
+  grupy:
+    _attributes: { phpName: Grupy }
+    id: { phpName: Id, type: INTEGER, primaryKey: true, required: true }
+    pupil: { phpName: Pupil, type: INTEGER, required: true, foreignTable: uzytkownik, foreignReference: id }
+    semestr_id: { phpName: SemestrId, type: INTEGER, required: true, foreignTable: semestr, foreignReference: id }
+    grupa: { phpName: Grupa, type: INTEGER, required: false }
+    info: { phpName: Info, type: LONGVARCHAR, required: false }
+  klasy:
+    _attributes: { phpName: Klasy }
+    id: { phpName: Id, type: INTEGER, primaryKey: true, required: true }
+    poziom: { phpName: Poziom, type: INTEGER, required: false }
+    znak: { phpName: Znak, type: LONGVARCHAR, required: false }
+    opis: { phpName: Opis, type: LONGVARCHAR, required: false }
+    wychowawca: { phpName: Wychowawca, type: INTEGER, required: false }
+    startsemestr: { phpName: Startsemestr, type: INTEGER, required: false }
+  lekcje:
+    _attributes: { phpName: Lekcje }
+    id: { phpName: Id, type: INTEGER, primaryKey: true, required: true }
+    przedmiot_id: { phpName: PrzedmiotId, type: INTEGER, required: true, foreignTable: przedmiot, foreignReference: id }
+    klasa_id: { phpName: KlasaId, type: INTEGER, required: true, foreignTable: klasy, foreignReference: id }
+    semestr_id: { phpName: SemestrId, type: INTEGER, required: true, foreignTable: semestr, foreignReference: id }
+    temat: { phpName: Temat, type: LONGVARCHAR, required: false }
+    datalekcji: { phpName: Datalekcji, type: TIMESTAMP, required: false }
+    nauczyciel_id: { phpName: NauczycielId, type: INTEGER, required: true, foreignTable: uzytkownik, foreignReference: id }
+  obecnosci:
+    _attributes: { phpName: Obecnosci }
+    id: { phpName: Id, type: INTEGER, primaryKey: true, required: true }
+    pupil: { phpName: Pupil, type: INTEGER, required: true, foreignTable: uzytkownik, foreignReference: id }
+    lekcja_id: { phpName: LekcjaId, type: INTEGER, required: true, foreignTable: lekcje, foreignReference: id }
+    rodzajobecnosci: { phpName: Rodzajobecnosci, type: LONGVARCHAR, required: false }
+  oceny:
+    _attributes: { phpName: Oceny }
+    id: { phpName: Id, type: INTEGER, primaryKey: true, required: true }
+    pupil: { phpName: Pupil, type: INTEGER, required: true, foreignTable: uzytkownik, foreignReference: id }
+    ocena_id: { phpName: OcenaId, type: INTEGER, required: true, foreignTable: tablicaocen, foreignReference: id }
+    waga: { phpName: Waga, type: VARCHAR, size: '255', required: true, defaultValue: '1' }
+    nauczyciel_id: { phpName: NauczycielId, type: INTEGER, required: true, foreignTable: uzytkownik, foreignReference: id }
+    przedmiot_id: { phpName: PrzedmiotId, type: INTEGER, required: true, foreignTable: przedmiot, foreignReference: id }
+    semestr_id: { phpName: SemestrId, type: INTEGER, required: true, foreignTable: semestr, foreignReference: id }
+    dataoceny: { phpName: Dataoceny, type: DATE, required: false }
+    info: { phpName: Info, type: LONGVARCHAR, required: false }
+  planlekcji:
+    _attributes: { phpName: Planlekcji }
+    id: { phpName: Id, type: INTEGER, primaryKey: true, required: true }
+    semestr_id: { phpName: SemestrId, type: INTEGER, required: true, foreignTable: semestr, foreignReference: id }
+    klasa_id: { phpName: KlasaId, type: INTEGER, required: true, foreignTable: klasy, foreignReference: id }
+    nauczyciel_id: { phpName: NauczycielId, type: INTEGER, required: true, foreignTable: uzytkownik, foreignReference: id }
+    przedmiot_id: { phpName: PrzedmiotId, type: INTEGER, required: true, foreignTable: przedmiot, foreignReference: id }
+    czasstart: { phpName: Czasstart, type: DATE, required: false }
+    czasstop: { phpName: Czasstop, type: DATE, required: false }
+    dzientygodnia: { phpName: Dzientygodnia, type: INTEGER, required: false }
+    godzinalekcyjna: { phpName: Godzinalekcyjna, type: INTEGER, required: false }
+    grupa_id: { phpName: GrupaId, type: INTEGER, required: false, foreignTable: grupy, foreignReference: id }
+    obowiazkowa: { phpName: Obowiazkowa, type: BOOLEAN, required: true, defaultValue: true }
+  przedmiot:
+    _attributes: { phpName: Przedmiot }
+    id: { phpName: Id, type: INTEGER, primaryKey: true, required: true }
+    nazwa: { phpName: Nazwa, type: LONGVARCHAR, required: false }
+  semestr:
+    _attributes: { phpName: Semestr }
+    id: { phpName: Id, type: INTEGER, primaryKey: true, required: true }
+    rok: { phpName: Rok, type: LONGVARCHAR, required: false }
+    polowa: { phpName: Polowa, type: LONGVARCHAR, required: false }
+  tablicaocen:
+    _attributes: { phpName: Tablicaocen }
+    id: { phpName: Id, type: INTEGER, primaryKey: true, required: true }
+    nazwa: { phpName: Nazwa, type: LONGVARCHAR, required: false }
+    wartosc: { phpName: Wartosc, type: VARCHAR, size: '255', required: false }
+  usprawiedliwienie:
+    _attributes: { phpName: Usprawiedliwienie }
+    id: { phpName: Id, type: BIGINT, primaryKey: true, autoIncrement: true, required: true }
+    obecnosci_id: { phpName: ObecnosciId, type: INTEGER, required: false, foreignTable: obecnosci, foreignReference: id }
+    uzytkownik_id: { phpName: UzytkownikId, type: INTEGER, required: true, foreignTable: uzytkownik, foreignReference: id }
+    tresc: { phpName: Tresc, type: LONGVARCHAR, required: false }
+  uwagi:
+    _attributes: { phpName: Uwagi }
+    id: { phpName: Id, type: INTEGER, primaryKey: true, required: true }
+    pupil: { phpName: Pupil, type: INTEGER, required: true, foreignTable: uzytkownik, foreignReference: id }
+    lekcja_id: { phpName: LekcjaId, type: INTEGER, required: true, foreignTable: lekcje, foreignReference: id }
+    info: { phpName: Info, type: LONGVARCHAR, required: false }
+  uzytkownik:
+    _attributes: { phpName: Uzytkownik }
+    id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
+    rodzaj: { phpName: Rodzaj, type: CHAR, size: '1', required: false }
+    imie: { phpName: Imie, type: LONGVARCHAR, required: false }
+    nazwisko: { phpName: Nazwisko, type: LONGVARCHAR, required: false }
+    login: { phpName: Login, type: LONGVARCHAR, required: true }
+    haslo: { phpName: Haslo, type: LONGVARCHAR, required: true }
+    email: { phpName: Email, type: LONGVARCHAR, required: false }
+    telefon: { phpName: Telefon, type: LONGVARCHAR, required: false }
+    klasa_id: { phpName: KlasaId, type: INTEGER, required: false }
+    pesel: { phpName: Pesel, type: INTEGER, required: false }
+    dataurodzin: { phpName: Dataurodzin, type: DATE, required: false }
+    miejsceurodzin: { phpName: Miejsceurodzin, type: LONGVARCHAR, required: false }
+    ojciec: { phpName: Ojciec, type: INTEGER, required: false }
+    matka: { phpName: Matka, type: INTEGER, required: false }
+    ulica: { phpName: Ulica, type: LONGVARCHAR, required: false }
+    nrdomu: { phpName: Nrdomu, type: LONGVARCHAR, required: false }
+    kodpocztowy: { phpName: Kodpocztowy, type: LONGVARCHAR, required: false }
+    panstwo: { phpName: Panstwo, type: LONGVARCHAR, required: false }
+    info: { phpName: Info, type: LONGVARCHAR, required: false }
+    aktywny: { phpName: Aktywny, type: BOOLEAN, required: true, defaultValue: true }
