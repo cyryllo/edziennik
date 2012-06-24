@@ -23,3 +23,79 @@ sekretariat:
 admin:
   is_secure: true
   credentials: admin
+  
+dodajg:
+  is_secure: true
+  credentials: [[ admin, sekret ]] 
+  
+dodajk:
+  is_secure: true
+  credentials: [[ admin, sekret ]] 
+  
+dodajpl:
+  is_secure: true
+  credentials: [[ admin, sekret ]] 
+  
+dodajse:
+  is_secure: true
+  credentials: [[ admin, sekret ]] 
+  
+dodajto:
+  is_secure: true
+  credentials: [[ admin, sekret ]] 
+  
+dodaju:
+  is_secure: true
+  credentials: [[ admin, sekret ]] 
+
+zapiszg:
+  is_secure: true
+  credentials: [[ admin, sekret ]] 
+  
+zapiszk:
+  is_secure: true
+  credentials: [[ admin, sekret ]] 
+  
+zapiszpl:
+  is_secure: true
+  credentials: [[ admin, sekret ]] 
+  
+zapiszse:
+  is_secure: true
+  credentials: [[ admin, sekret ]] 
+  
+zapiszto:
+  is_secure: true
+  credentials: [[ admin, sekret ]] 
+  
+zapiszu:
+  is_secure: true
+  credentials: [[ admin, sekret ]] 
+  
+grupy:
+  is_secure: true
+  credentials: [[ admin, sekret ]] 
+  
+klasy:
+  is_secure: true
+  credentials: [[ admin, sekret ]] 
+  
+mkonto:
+  is_secure: true
+  credentials: [[ admin, sekret ]] 
+  
+planlekcji:
+  is_secure: true
+  credentials: [[ admin, sekret ]] 
+  
+semestry:
+  is_secure: true
+  credentials: [[ admin, sekret ]] 
+  
+tablicaocen:
+  is_secure: true
+  credentials: [[ admin, sekret ]] 
+  
+users:
+  is_secure: true
+  credentials: [[ admin, sekret ]] 

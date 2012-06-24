@@ -1,7 +1,7 @@
 <?php
 class DodajuForm extends BaseForm
 {
-  protected static $rodzaje = array('u' => 'Uczeń', 'r' => 'Rodzic', 'n' => 'Nauczyciel', 's' => 'Sekretarka', 'd' => 'Dyrektor', 'a' => 'Administrator');
+  protected static $rodzaje = array('u' => 'Uczeń', 'r' => 'Rodzic', 'n' => 'Nauczyciel', 's' => 'Sekretarka', 'a' => 'Administrator');
   protected static $yon = array('1' => 'Tak', '0' => 'Nie');
   protected static $klasy = array('0' => 'Brak', '1' => '1E');
   protected static $rodzice = array('0' => 'Brak');
