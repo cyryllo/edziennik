@@ -237,10 +237,7 @@ class zapleczeActions extends sfActions
   //-----------------------------------SEMESTRY ----------------------------------
   public function executeSemestry(sfWebRequest $request)
   {
-<<<<<<< HEAD
 	$this->form = new DodajgForm();
-=======
->>>>>>> c52369e98c37ce49d120ddafbb6dc33c35427343
 	
   }
   
