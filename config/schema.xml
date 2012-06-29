@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="propel" package="lib.model" defaultIdMethod="native">
+
+  <table name="dyplomy">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" required="true" />
+    <column name="pupil" phpName="Pupil" type="INTEGER" required="true" />
+    <foreign-key foreignTable="uzytkownik">
+      <reference local="pupil" foreign="id" />
+    </foreign-key>
+    <column name="semestr_id" phpName="SemestrId" type="INTEGER" required="true" />
+    <foreign-key foreignTable="semestr">
+      <reference local="semestr_id" foreign="id" />
+    </foreign-key>
+    <column name="przedmiot_id" phpName="PrzedmiotId" type="INTEGER" required="true" />
+    <foreign-key foreignTable="przedmiot">
+      <reference local="przedmiot_id" foreign="id" />
+    </foreign-key>
+    <column name="ocenadyplomu" phpName="Ocenadyplomu" type="INTEGER" required="true" />
+  </table>
+
+  <table name="grupy">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" required="true" />
+    <column name="pupil" phpName="Pupil" type="INTEGER" required="true" />
+    <foreign-key foreignTable="uzytkownik">
+      <reference local="pupil" foreign="id" />
+    </foreign-key>
+    <column name="semestr_id" phpName="SemestrId" type="INTEGER" required="true" />
+    <foreign-key foreignTable="semestr">
+      <reference local="semestr_id" foreign="id" />
+    </foreign-key>
+    <column name="grupa" phpName="Grupa" type="INTEGER" required="false" />
+    <column name="info" phpName="Info" type="LONGVARCHAR" required="false" />
+  </table>
+
+  <table name="klasy">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" required="true" />
+    <column name="poziom" phpName="Poziom" type="INTEGER" required="false" />
+    <column name="znak" phpName="Znak" type="LONGVARCHAR" required="false" />
+    <column name="opis" phpName="Opis" type="LONGVARCHAR" required="false" />
+    <column name="wychowawca" phpName="Wychowawca" type="INTEGER" required="false" />
+    <column name="startsemestr" phpName="Startsemestr" type="INTEGER" required="false" />
+  </table>
+
+  <table name="lekcje">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" required="true" />
+    <column name="przedmiot_id" phpName="PrzedmiotId" type="INTEGER" required="true" />
+    <foreign-key foreignTable="przedmiot">
+      <reference local="przedmiot_id" foreign="id" />
+    </foreign-key>
+    <column name="klasa_id" phpName="KlasaId" type="INTEGER" required="true" />
+    <foreign-key foreignTable="klasy">
+      <reference local="klasa_id" foreign="id" />
+    </foreign-key>
+    <column name="semestr_id" phpName="SemestrId" type="INTEGER" required="true" />
+    <foreign-key foreignTable="semestr">
+      <reference local="semestr_id" foreign="id" />
+    </foreign-key>
+    <column name="temat" phpName="Temat" type="LONGVARCHAR" required="false" />
+    <column name="datalekcji" phpName="Datalekcji" type="TIMESTAMP" required="false" />
+    <column name="nauczyciel_id" phpName="NauczycielId" type="INTEGER" required="true" />
+    <foreign-key foreignTable="uzytkownik">
+      <reference local="nauczyciel_id" foreign="id" />
+    </foreign-key>
+  </table>
+
+  <table name="obecnosci">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" required="true" />
+    <column name="pupil" phpName="Pupil" type="INTEGER" required="true" />
+    <foreign-key foreignTable="uzytkownik">
+      <reference local="pupil" foreign="id" />
+    </foreign-key>
+    <column name="lekcja_id" phpName="LekcjaId" type="INTEGER" required="true" />
+    <foreign-key foreignTable="lekcje">
+      <reference local="lekcja_id" foreign="id" />
+    </foreign-key>
+    <column name="rodzajobecnosci" phpName="Rodzajobecnosci" type="LONGVARCHAR" required="false" />
+  </table>
+
+  <table name="oceny">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" required="true" />
+    <column name="pupil" phpName="Pupil" type="INTEGER" required="true" />
+    <foreign-key foreignTable="uzytkownik">
+      <reference local="pupil" foreign="id" />
+    </foreign-key>
+    <column name="ocena_id" phpName="OcenaId" type="INTEGER" required="true" />
+    <foreign-key foreignTable="tablicaocen">
+      <reference local="ocena_id" foreign="id" />
+    </foreign-key>
+    <column name="waga" phpName="Waga" type="VARCHAR" size="255" required="true" defaultValue="1" />
+    <column name="nauczyciel_id" phpName="NauczycielId" type="INTEGER" required="true" />
+    <foreign-key foreignTable="uzytkownik">
+      <reference local="nauczyciel_id" foreign="id" />
+    </foreign-key>
+    <column name="przedmiot_id" phpName="PrzedmiotId" type="INTEGER" required="true" />
+    <foreign-key foreignTable="przedmiot">
+      <reference local="przedmiot_id" foreign="id" />
+    </foreign-key>
+    <column name="semestr_id" phpName="SemestrId" type="INTEGER" required="true" />
+    <foreign-key foreignTable="semestr">
+      <reference local="semestr_id" foreign="id" />
+    </foreign-key>
+    <column name="dataoceny" phpName="Dataoceny" type="DATE" required="false" />
+    <column name="info" phpName="Info" type="LONGVARCHAR" required="false" />
+  </table>
+
+  <table name="planlekcji">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" required="true" />
+    <column name="semestr_id" phpName="SemestrId" type="INTEGER" required="true" />
+    <foreign-key foreignTable="semestr">
+      <reference local="semestr_id" foreign="id" />
+    </foreign-key>
+    <column name="klasa_id" phpName="KlasaId" type="INTEGER" required="true" />
+    <foreign-key foreignTable="klasy">
+      <reference local="klasa_id" foreign="id" />
+    </foreign-key>
+    <column name="nauczyciel_id" phpName="NauczycielId" type="INTEGER" required="true" />
+    <foreign-key foreignTable="uzytkownik">
+      <reference local="nauczyciel_id" foreign="id" />
+    </foreign-key>
+    <column name="przedmiot_id" phpName="PrzedmiotId" type="INTEGER" required="true" />
+    <foreign-key foreignTable="przedmiot">
+      <reference local="przedmiot_id" foreign="id" />
+    </foreign-key>
+    <column name="czasstart" phpName="Czasstart" type="DATE" required="false" />
+    <column name="czasstop" phpName="Czasstop" type="DATE" required="false" />
+    <column name="dzientygodnia" phpName="Dzientygodnia" type="INTEGER" required="false" />
+    <column name="godzinalekcyjna" phpName="Godzinalekcyjna" type="INTEGER" required="false" />
+    <column name="grupa_id" phpName="GrupaId" type="INTEGER" required="false" />
+    <foreign-key foreignTable="grupy">
+      <reference local="grupa_id" foreign="id" />
+    </foreign-key>
+    <column name="obowiazkowa" phpName="Obowiazkowa" type="BOOLEAN" required="true" defaultValue="1" />
+  </table>
+
+  <table name="przedmiot">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" required="true" />
+    <column name="nazwa" phpName="Nazwa" type="LONGVARCHAR" required="false" />
+  </table>
+
+  <table name="semestr">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" required="true" />
+    <column name="rok" phpName="Rok" type="LONGVARCHAR" required="false" />
+    <column name="polowa" phpName="Polowa" type="LONGVARCHAR" required="false" />
+  </table>
+
+  <table name="tablicaocen">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" required="true" />
+    <column name="nazwa" phpName="Nazwa" type="LONGVARCHAR" required="false" />
+    <column name="wartosc" phpName="Wartosc" type="VARCHAR" size="255" required="false" />
+  </table>
+
+  <table name="usprawiedliwienie">
+    <column name="id" phpName="Id" type="BIGINT" primaryKey="true" autoIncrement="true" required="true" />
+    <column name="obecnosci_id" phpName="ObecnosciId" type="INTEGER" required="false" />
+    <foreign-key foreignTable="obecnosci">
+      <reference local="obecnosci_id" foreign="id" />
+    </foreign-key>
+    <column name="uzytkownik_id" phpName="UzytkownikId" type="INTEGER" required="true" />
+    <foreign-key foreignTable="uzytkownik">
+      <reference local="uzytkownik_id" foreign="id" />
+    </foreign-key>
+    <column name="tresc" phpName="Tresc" type="LONGVARCHAR" required="false" />
+  </table>
+
+  <table name="uwagi">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" required="true" />
+    <column name="pupil" phpName="Pupil" type="INTEGER" required="true" />
+    <foreign-key foreignTable="uzytkownik">
+      <reference local="pupil" foreign="id" />
+    </foreign-key>
+    <column name="lekcja_id" phpName="LekcjaId" type="INTEGER" required="true" />
+    <foreign-key foreignTable="lekcje">
+      <reference local="lekcja_id" foreign="id" />
+    </foreign-key>
+    <column name="info" phpName="Info" type="LONGVARCHAR" required="false" />
+  </table>
+
+  <table name="uzytkownik">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true" />
+    <column name="rodzaj" phpName="Rodzaj" type="CHAR" size="1" required="false" />
+    <column name="imie" phpName="Imie" type="LONGVARCHAR" required="false" />
+    <column name="nazwisko" phpName="Nazwisko" type="LONGVARCHAR" required="false" />
+    <column name="login" phpName="Login" type="LONGVARCHAR" required="true" />
+    <column name="haslo" phpName="Haslo" type="LONGVARCHAR" required="true" />
+    <column name="email" phpName="Email" type="LONGVARCHAR" required="false" />
+    <column name="telefon" phpName="Telefon" type="LONGVARCHAR" required="false" />
+    <column name="klasa_id" phpName="KlasaId" type="INTEGER" required="false" />
+    <column name="pesel" phpName="Pesel" type="INTEGER" required="false" />
+    <column name="dataurodzin" phpName="Dataurodzin" type="DATE" required="false" />
+    <column name="miejsceurodzin" phpName="Miejsceurodzin" type="LONGVARCHAR" required="false" />
+    <column name="ojciec" phpName="Ojciec" type="INTEGER" required="false" />
+    <column name="matka" phpName="Matka" type="INTEGER" required="false" />
+    <column name="ulica" phpName="Ulica" type="LONGVARCHAR" required="false" />
+    <column name="nrdomu" phpName="Nrdomu" type="LONGVARCHAR" required="false" />
+    <column name="kodpocztowy" phpName="Kodpocztowy" type="LONGVARCHAR" required="false" />
+    <column name="panstwo" phpName="Panstwo" type="LONGVARCHAR" required="false" />
+    <column name="info" phpName="Info" type="LONGVARCHAR" required="false" />
+    <column name="aktywny" phpName="Aktywny" type="BOOLEAN" required="true" defaultValue="1" />
+  </table>
+
+</database>
