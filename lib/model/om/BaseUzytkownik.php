@@ -383,9 +383,11 @@ abstract class BaseUzytkownik extends BaseObject  implements Persistent {
 	 */
 	public function getDataurodzin($format = 'Y-m-d')
 	{
+	
 		if ($this->dataurodzin === null) {
 			return null;
 		}
+	 
 
 
 		if ($this->dataurodzin === '0000-00-00') {
@@ -408,6 +410,9 @@ abstract class BaseUzytkownik extends BaseObject  implements Persistent {
 		} else {
 			return $dt->format($format);
 		}
+	 
+	
+	 
 	}
 
 	/**
@@ -613,7 +618,7 @@ abstract class BaseUzytkownik extends BaseObject  implements Persistent {
 		}
 
 		if ($this->haslo !== $v) {
-			$this->haslo = $v;
+			$this->haslo = sha1($v);
 			$this->modifiedColumns[] = UzytkownikPeer::HASLO;
 		}
 
