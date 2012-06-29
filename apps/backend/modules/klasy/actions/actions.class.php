@@ -54,7 +54,7 @@ class klasyActions extends sfActions
     $this->forward404Unless($Klasy = KlasyPeer::retrieveByPk($request->getParameter('id')), sprintf('Object Klasy does not exist (%s).', $request->getParameter('id')));
     $Klasy->delete();
 
-    $this->redirect('klasy/index');
+    $this->redirect('klasy/indexk');
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)
@@ -63,8 +63,9 @@ class klasyActions extends sfActions
     if ($form->isValid())
     {
       $Klasy = $form->save();
-
-      $this->redirect('klasy/edit?id='.$Klasy->getId());
+	
+	$this->redirect('klasy/indexk');
+     // $this->redirect('klasy/edit?id='.$Klasy->getId());
     }
   }
 }

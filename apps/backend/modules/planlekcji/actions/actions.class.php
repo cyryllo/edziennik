@@ -54,7 +54,7 @@ class planlekcjiActions extends sfActions
     $this->forward404Unless($Planlekcji = PlanlekcjiPeer::retrieveByPk($request->getParameter('id')), sprintf('Object Planlekcji does not exist (%s).', $request->getParameter('id')));
     $Planlekcji->delete();
 
-    $this->redirect('planlekcji/index');
+    $this->redirect('planlekcji/indexpl');
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)
@@ -64,7 +64,8 @@ class planlekcjiActions extends sfActions
     {
       $Planlekcji = $form->save();
 
-      $this->redirect('planlekcji/edit?id='.$Planlekcji->getId());
+	  $this->redirect('planlekcji/indexpl');
+      //$this->redirect('planlekcji/edit?id='.$Planlekcji->getId());
     }
   }
 }

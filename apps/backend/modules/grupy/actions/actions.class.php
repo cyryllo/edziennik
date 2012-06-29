@@ -54,7 +54,7 @@ class grupyActions extends sfActions
     $this->forward404Unless($Grupy = GrupyPeer::retrieveByPk($request->getParameter('id')), sprintf('Object Grupy does not exist (%s).', $request->getParameter('id')));
     $Grupy->delete();
 
-    $this->redirect('grupy/index');
+    $this->redirect('grupy/indexg');
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)
@@ -64,7 +64,8 @@ class grupyActions extends sfActions
     {
       $Grupy = $form->save();
 
-      $this->redirect('grupy/edit?id='.$Grupy->getId());
+	  $this->redirect('grupy/indexg');
+      //$this->redirect('grupy/edit?id='.$Grupy->getId());
     }
   }
 }

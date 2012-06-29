@@ -54,7 +54,7 @@ class przedmiotActions extends sfActions
     $this->forward404Unless($Przedmiot = PrzedmiotPeer::retrieveByPk($request->getParameter('id')), sprintf('Object Przedmiot does not exist (%s).', $request->getParameter('id')));
     $Przedmiot->delete();
 
-    $this->redirect('przedmiot/index');
+    $this->redirect('przedmiot/indexpr');
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)
@@ -64,7 +64,8 @@ class przedmiotActions extends sfActions
     {
       $Przedmiot = $form->save();
 
-      $this->redirect('przedmiot/edit?id='.$Przedmiot->getId());
+	  $this->redirect('przedmiot/indexpr');
+      //$this->redirect('przedmiot/edit?id='.$Przedmiot->getId());
     }
   }
 }

@@ -54,7 +54,7 @@ class semestrActions extends sfActions
     $this->forward404Unless($Semestr = SemestrPeer::retrieveByPk($request->getParameter('id')), sprintf('Object Semestr does not exist (%s).', $request->getParameter('id')));
     $Semestr->delete();
 
-    $this->redirect('semestr/index');
+    $this->redirect('semestr/indexse');
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)
@@ -64,7 +64,8 @@ class semestrActions extends sfActions
     {
       $Semestr = $form->save();
 
-      $this->redirect('semestr/edit?id='.$Semestr->getId());
+       $this->redirect('semestr/indexse');
+      //$this->redirect('semestr/edit?id='.$Semestr->getId());
     }
   }
 }
