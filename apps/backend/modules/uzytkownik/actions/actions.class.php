@@ -18,8 +18,8 @@ class uzytkownikActions extends sfActions
   {
     $this->form = new UzytkownikForm();
   }
-
-  public function executeCreate(sfWebRequest $request)
+	
+   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
 
@@ -54,7 +54,7 @@ class uzytkownikActions extends sfActions
     $this->forward404Unless($Uzytkownik = UzytkownikPeer::retrieveByPk($request->getParameter('id')), sprintf('Object Uzytkownik does not exist (%s).', $request->getParameter('id')));
     $Uzytkownik->delete();
 
-    $this->redirect('uzytkownik/index');
+    $this->redirect('uzytkownik/indexus');
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)
@@ -64,7 +64,8 @@ class uzytkownikActions extends sfActions
     {
       $Uzytkownik = $form->save();
 
-      $this->redirect('uzytkownik/edit?id='.$Uzytkownik->getId());
+	  $this->redirect('uzytkownik/indexus');
+      //$this->redirect('uzytkownik/edit?id='.$Uzytkownik->getId());
     }
   }
 }
