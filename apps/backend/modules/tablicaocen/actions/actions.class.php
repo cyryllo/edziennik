@@ -54,7 +54,7 @@ class tablicaocenActions extends sfActions
     $this->forward404Unless($Tablicaocen = TablicaocenPeer::retrieveByPk($request->getParameter('id')), sprintf('Object Tablicaocen does not exist (%s).', $request->getParameter('id')));
     $Tablicaocen->delete();
 
-    $this->redirect('tablicaocen/index');
+    $this->redirect('tablicaocen/indexto');
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)
@@ -64,7 +64,8 @@ class tablicaocenActions extends sfActions
     {
       $Tablicaocen = $form->save();
 
-      $this->redirect('tablicaocen/edit?id='.$Tablicaocen->getId());
+      //$this->redirect('tablicaocen/edit?id='.$Tablicaocen->getId());
+      $this->redirect('tablicaocen/indexto');
     }
   }
 }
